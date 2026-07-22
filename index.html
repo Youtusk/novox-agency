@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novox Studio | Création de Sites Web Premium</title>
+    <meta name="description" content="Agence web nouvelle génération. Création de sites internet modernes, rapides et performants.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/lucide@latest/css/lucide.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">NOVOX.</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="btn-primary">Démarrer un projet</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">Agence Web Nouvelle Génération</div>
+            <h1>Des sites web <span class="typewriter"></span><span class="type-cursor">|</span></h1>
+            <p>Nous transformons votre vision en une expérience digitale haut de gamme. Démarquez-vous de la concurrence avec un design sur-mesure.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Demander un devis</a>
+                <a href="#portfolio" class="btn-secondary">Voir nos réalisations</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="services">
+        <h2>Notre Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <i data-lucide="layout"></i>
+                <h3>Site Vitrine Premium</h3>
+                <p>Un design unique en "Dark Mode" pour asseoir votre autorité sur votre marché.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="zap"></i>
+                <h3>Performances Extrêmes</h3>
+                <p>Une optimisation maximale du code pour un chargement instantané.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="smartphone"></i>
+                <h3>Design Responsive</h3>
+                <p>Une interface parfaitement adaptée pour mobile, tablette et ordinateur.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Nos Réalisations</h2>
+        <div class="grid">
+            <div class="portfolio-item">
+                <div class="project-img">
+                    <img src="projet-yt.png" alt="YouTube Thumbnail Grabber" class="portfolio-image">
+                </div>
+                <div class="project-info">
+                    <h3>Extracteur 4K Pro</h3>
+                    <p>Outil SaaS de traitement d'images haute résolution.</p>
+                    <a href="https://youtusk.github.io/yt-thumbnail-grabber/" target="_blank" class="project-link">Visiter le site <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="project-img">
+                    <img src="projet-in.png" alt="LinkedIn Formatter" class="portfolio-image">
+                </div>
+                <div class="project-info">
+                    <h3>Formatteur LinkedIn</h3>
+                    <p>Application web de conversion de texte Unicode pour professionnels.</p>
+                    <a href="https://youtusk.github.io/linkedin-formatter/" target="_blank" class="project-link">Visiter le site <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-box">
+            <h2>Prêt à dominer votre marché ?</h2>
+            <p>Discutons de votre projet. Création de sites web à partir de 1 000€.</p>
+            <form action="https://formspree.io/f/xnjebvno" method="POST" id="contact-form" class="form">
+                <input type="text" name="nom" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email professionnel" required>
+                <textarea name="message" placeholder="Parlez-nous brièvement de votre projet..." rows="4" required></textarea>
+                <button type="submit" class="btn-primary w-full">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Novox Studio. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Curseur Magnétique -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
