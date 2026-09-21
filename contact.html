@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démarrer un Projet | Novox Studio</title>
+    <meta name="description" content="Contactez Novox Studio pour lancer la création de votre site vitrine clé en main. Réponse personnalisée et sans engagement.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="favicon.svg" alt="N" class="brand-icon">
+                <span class="brand-logo">NOVOX.</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="offre.html" class="nav-link">L'Offre 1 000€</a>
+                <a href="portfolio.html" class="nav-link">Portfolio & Maquettes</a>
+                <a href="contact.html" class="btn-primary active">Démarrer un projet</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="section">
+            <div class="contact-container">
+                <div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
+                    <div class="section-label">Contact Direct</div>
+                    <h1 class="section-title">Parlons de votre futur site</h1>
+                    <p class="section-desc" style="margin: 0 auto;">
+                        Décrivez-nous brièvement votre activité et vos objectifs. Nous étudions votre demande et revenons vers vous avec une proposition claire.
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <form id="contact-form" action="https://formspree.io/f/xnjebvno" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name">Votre nom ou entreprise</label>
+                                <input type="text" id="form-name" name="nom" placeholder="Ex: Alexandre Martin" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Votre email professionnel</label>
+                                <input type="email" id="form-email" name="email" placeholder="alexandre@entreprise.fr" required autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-activity">Votre domaine d'activité</label>
+                            <input type="text" id="form-activity" name="activite" placeholder="Ex: Artisanat, Conseil, Automobile, Restauration..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-message">Votre projet en quelques mots</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Précisez si vous avez déjà un logo, un modèle préféré (ex: RideZone, Architecte Luxe) ou un délai souhaité..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%; padding: 0.95rem; font-size: 1rem;">
+                            <span>Envoyer ma demande de projet</span>
+                        </button>
+
+                        <div id="form-feedback" class="form-alert" role="alert"></div>
+                    </form>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.875rem;">
+                    <p>Pour un échange direct : <strong>contact.novox@proton.me</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">NOVOX.</div>
+            <nav class="footer-nav">
+                <a href="index.html">Accueil</a>
+                <a href="offre.html">Offre 1 000€</a>
+                <a href="portfolio.html">Portfolio & Maquettes</a>
+                <a href="contact.html">Démarrer un projet</a>
+                <a href="legal.html">Mentions Légales</a>
+            </nav>
+            <div class="footer-copy">&copy; 2026 Novox Studio. Tous droits réservés.</div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
