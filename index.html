@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novox Studio — Site en Développement</title>
-    <meta name="description" content="Novox Studio : Création de sites vitrines d'exception en 48h chrono. Plateforme actuellement en cours de développement.">
+    <meta name="description" content="Novox Studio : Création de sites vitrines d'exception. Plateforme actuellement en cours de développement.">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Favicon -->
@@ -16,134 +16,622 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Styles CSS Autonomes & Intégrés (Garantit 100% d'affichage même si cache navigateur actif) -->
+    <style>
+        :root {
+            --bg-base: #07070a;
+            --bg-surface: #0e0e14;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --accent-cyan: #00f0ff;
+            --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100vh;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .dev-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, #0d1424 0%, #07070a 65%);
+        }
+
+        /* Retro Grid 3D (Magic UI) */
+        .retro-grid {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            perspective: 300px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .retro-grid-plane {
+            position: absolute;
+            inset: -60% -20% 0 -20%;
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 0),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 0);
+            transform: rotateX(68deg);
+            transform-origin: top;
+            animation: grid-movement 14s linear infinite;
+        }
+
+        @keyframes grid-movement {
+            0% { transform: rotateX(68deg) translateY(0); }
+            100% { transform: rotateX(68deg) translateY(50px); }
+        }
+
+        /* Halos Lumineux Ambiance */
+        .glow-orb-cyan {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glow-orb-blue {
+            position: absolute;
+            bottom: 20%;
+            right: 18%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, transparent 70%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Header Fixe Épuré */
+        .header {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 7, 10, 0.8);
+            backdrop-filter: blur(16px);
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
+
+        .brand-logo span {
+            color: var(--primary);
+        }
+
+        .header-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #60a5fa;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+            animation: pulse-glow 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.45; }
+        }
+
+        /* Conteneur Central */
+        .main-container {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3.5rem 1.5rem 4rem;
+            max-width: 920px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Carte Principale Glassmorphism & Border Beam */
+        .dev-card {
+            position: relative;
+            background: rgba(14, 14, 20, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-radius: 24px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Border Beam (Magic UI) */
+        @keyframes border-beam-run {
+            0% { offset-distance: 0%; }
+            100% { offset-distance: 100%; }
+        }
+
+        .dev-card::after {
+            content: "";
+            position: absolute;
+            aspect-ratio: 1;
+            width: 160px;
+            offset-path: rect(0 auto auto 0 round 24px);
+            animation: border-beam-run 9s infinite linear;
+            background: linear-gradient(to right, transparent, #00f0ff, #3b82f6, transparent);
+            pointer-events: none;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(14, 18, 30, 0.95);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            padding: 0.45rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #60a5fa;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 5;
+        }
+
+        /* H1 Principal */
+        .dev-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+            margin-bottom: 1.25rem;
+        }
+
+        .gradient-text {
+            font-style: normal;
+            background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .dev-desc {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 660px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        /* HUD Progression */
+        .hud-pipeline {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .hud-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: #cbd5e1;
+        }
+
+        .hud-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 9999px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .hud-fill {
+            width: 94%;
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #00f0ff 70%, #10b981 100%);
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+            position: relative;
+        }
+
+        .hud-fill::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            animation: scan-beam 2.2s infinite;
+        }
+
+        @keyframes scan-beam {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hud-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .hud-step {
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .hud-step.done {
+            color: #34d399;
+        }
+
+        .hud-step.active {
+            color: #00f0ff;
+            font-weight: 600;
+        }
+
+        /* Shimmer Button (Magic UI) */
+        @keyframes shimmer-move {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(0, 240, 255, 0.45);
+            border-radius: 9999px;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .shimmer-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            animation: shimmer-move 3.2s infinite;
+        }
+
+        .shimmer-btn:hover {
+            transform: translateY(-2px);
+            border-color: #00f0ff;
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45);
+            color: #ffffff;
+        }
+
+        /* Grille 3 Piliers Clés */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+            width: 100%;
+            text-align: left;
+        }
+
+        .pillar-card {
+            background: rgba(14, 14, 20, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(16px);
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            background: rgba(14, 14, 20, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .pillar-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.9rem;
+            background: rgba(59, 130, 246, 0.12);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .pillar-title {
+            font-family: var(--font-heading);
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .pillar-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 7, 10, 0.9);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .footer-brand span {
+            color: var(--primary);
+        }
+
+        .footer-mail {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-mail a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-mail a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        .footer-copy {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 820px) {
+            .dev-card {
+                padding: 2.5rem 1.75rem;
+            }
+            .hud-steps {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-pill {
+                display: none;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="dev-page-wrapper">
+    <div class="dev-wrapper">
         <!-- Magic UI Retro Grid 3D -->
         <div class="retro-grid" aria-hidden="true">
             <div class="retro-grid-plane"></div>
         </div>
 
         <!-- Halos Lumineux Décoratifs -->
-        <div class="dev-glow-orb-1" aria-hidden="true"></div>
-        <div class="dev-glow-orb-2" aria-hidden="true"></div>
+        <div class="glow-orb-cyan" aria-hidden="true"></div>
+        <div class="glow-orb-blue" aria-hidden="true"></div>
 
-        <!-- Header / Navigation Minimaliste -->
+        <!-- Header / Navigation Minimaliste (Zéro lien sortant vers le site) -->
         <header class="header">
             <nav class="navbar">
-                <a href="index.html" class="brand">
+                <div class="brand">
                     <img src="favicon.svg" alt="N" class="brand-icon">
-                    <span class="brand-logo">NOVOX.</span>
-                </a>
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <span class="nav-dev-badge">
-                        <span class="live-dot" style="background: #00f0ff; box-shadow: 0 0 10px #00f0ff;"></span> Déploiement V2 en Cours
-                    </span>
-                    <a href="site.html" class="btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem;">
-                        Accéder au Site <i data-lucide="arrow-right"></i>
-                    </a>
+                    <span class="brand-logo">NOVOX<span>.</span></span>
+                </div>
+                <div class="header-pill">
+                    <span class="pulse-dot"></span> Site en Développement
                 </div>
             </nav>
         </header>
 
         <!-- Contenu Central : Carte Prestige en Développement -->
-        <main class="dev-content-container" style="padding-top: 7.5rem;">
-            <div class="dev-main-card">
+        <main class="main-container">
+            <div class="dev-card">
                 <!-- Statut Supérieur -->
-                <div class="dev-status-pill">
-                    <span class="dev-pulse-dot"></span> Phase Finale de Finalisation · Accès Restreint
+                <div class="status-badge">
+                    <span class="pulse-dot"></span> Accès Restreint · Version Privée
                 </div>
 
                 <!-- H1 Demandé Spécifiquement -->
-                <h1 class="dev-hero-title">
-                    Site Actuellement<br><em>en Développement</em>
+                <h1 class="dev-title">
+                    Site Actuellement<br><span class="gradient-text">en Développement</span>
                 </h1>
 
-                <!-- Sous-titre & Pitch Novox Studio -->
-                <p class="dev-hero-desc">
-                    Nous calibrons actuellement notre nouvelle génération de vitrines digitales haute conversion. Code pur ultra-léger, Dark Mode d’exception et livraison clé en main en 48 heures chrono. La version publique arrive très prochainement.
+                <!-- Sous-titre & Pitch Novox Studio (Zéro mention d'IA) -->
+                <p class="dev-desc">
+                    Nous calibrons actuellement notre nouvelle génération de vitrines digitales haute performance. Code natif ultra-léger, esthétique sombre d’exception et livraison clé en main en 48 heures chrono. La plateforme sera accessible publiquement très prochainement.
                 </p>
 
                 <!-- HUD Pipeline de Progression Dynamique -->
-                <div class="dev-pipeline">
-                    <div class="dev-pipeline-head">
-                        <span><strong style="color: #ffffff;">Avancement Global du Studio</strong> · V2.4 Stable</span>
+                <div class="hud-pipeline">
+                    <div class="hud-head">
+                        <span><strong style="color: #ffffff;">Avancement du Studio</strong> · Version 2.4</span>
                         <span style="color: #00f0ff; font-weight: 700;">94%</span>
                     </div>
-                    <div class="dev-pipeline-bar">
-                        <div class="dev-pipeline-fill"></div>
+                    <div class="hud-bar">
+                        <div class="hud-fill"></div>
                     </div>
-                    <div class="dev-pipeline-steps">
-                        <div class="dev-step-item done">
+                    <div class="hud-steps">
+                        <div class="hud-step done">
                             <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> Architecture Code Pur
                         </div>
-                        <div class="dev-step-item active">
-                            <i data-lucide="loader" style="width: 16px; height: 16px; animation: spin 3s linear infinite;"></i> Maquettes & Démos Vidéo
+                        <div class="hud-step active">
+                            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i> Vitrines Signatures
                         </div>
-                        <div class="dev-step-item">
-                            <i data-lucide="clock" style="width: 16px; height: 16px;"></i> Lancement Public Imminent
+                        <div class="hud-step">
+                            <i data-lucide="clock" style="width: 16px; height: 16px;"></i> Lancement Imminent
                         </div>
                     </div>
                 </div>
 
-                <!-- Boutons d'Action & Shimmer Button (Magic UI) -->
-                <div class="dev-actions">
+                <!-- Action Unique : Prise de contact par email -->
+                <div>
                     <a href="mailto:contact.novox@proton.me" class="shimmer-btn">
-                        Contacter l'Agence en Privé <i data-lucide="mail"></i>
-                    </a>
-                    <a href="site.html" class="btn-ghost-dev">
-                        Aperçu Complet du Site <i data-lucide="external-link"></i>
-                    </a>
-                    <a href="portfolio.html" class="btn-ghost-dev">
-                        Explorer les Maquettes <i data-lucide="layout-grid"></i>
+                        <i data-lucide="mail"></i> Contacter l'Agence en Privé
                     </a>
                 </div>
             </div>
 
-            <!-- Grille Bento 3 Piliers Clés Novox -->
-            <div class="dev-pillars-grid">
-                <div class="dev-pillar-card">
-                    <div class="dev-pillar-icon">
+            <!-- Grille Bento 3 Piliers (100% Pro, Zéro mention d'IA) -->
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
                         <i data-lucide="zap"></i>
                     </div>
-                    <div class="dev-pillar-title">Formule Unique 1 000€</div>
-                    <div class="dev-pillar-desc">
-                        Livraison en 48h chrono. 0€ d'abonnement mensuel et zéro CMS lourd. L'efficacité radicale pour artisans et pros.
+                    <div class="pillar-title">Formule Unique 1 000€</div>
+                    <div class="pillar-desc">
+                        Livraison en 48h chrono. 0€ d'abonnement mensuel et zéro CMS lourd. L'efficacité radicale pour les pros.
                     </div>
                 </div>
 
-                <div class="dev-pillar-card">
-                    <div class="dev-pillar-icon" style="background: rgba(0, 240, 255, 0.12); color: #00f0ff; border-color: rgba(0, 240, 255, 0.25);">
-                        <i data-lucide="sparkles"></i>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(0, 240, 255, 0.12); color: #00f0ff; border-color: rgba(0, 240, 255, 0.25);">
+                        <i data-lucide="palette"></i>
                     </div>
-                    <div class="dev-pillar-title">Design Anti-AI Slop</div>
-                    <div class="dev-pillar-desc">
-                        Direction artistique sombre haut de gamme, typographies affirmées et animations cinématiques sur-mesure.
+                    <div class="pillar-title">Design Signature Sombre</div>
+                    <div class="pillar-desc">
+                        Direction artistique haut de gamme, typographies de caractère et animations cinématiques sur-mesure.
                     </div>
                 </div>
 
-                <div class="dev-pillar-card">
-                    <div class="dev-pillar-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.25);">
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.25);">
                         <i data-lucide="shield-check"></i>
                     </div>
-                    <div class="dev-pillar-title">Sécurité & Fiabilité</div>
-                    <div class="dev-pillar-desc">
-                        Protection client intégrée, certificat SSL et hébergement cloud haute disponibilité gratuit à vie.
+                    <div class="pillar-title">Sécurité & Cloud Haute Dispo</div>
+                    <div class="pillar-desc">
+                        Protection intégrée, certificat SSL et hébergement cloud haute disponibilité inclus à vie.
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- Footer Sobre & Épuré -->
-        <footer class="footer" style="position: relative; z-index: 10; padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.07);">
-            <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; max-width: 980px; margin: 0 auto; padding: 0 1.5rem;">
-                <div class="footer-brand" style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800;">NOVOX.</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted);">
-                    Contact direct : <a href="mailto:contact.novox@proton.me" style="color: #60a5fa; text-decoration: none;">contact.novox@proton.me</a>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">NOVOX<span>.</span></div>
+                <div class="footer-mail">
+                    Contact direct : <a href="mailto:contact.novox@proton.me">contact.novox@proton.me</a>
                 </div>
-                <div class="footer-copy" style="font-size: 0.82rem; color: var(--text-muted);">&copy; 2026 Novox Studio. Tous droits réservés.</div>
+                <div class="footer-copy">&copy; 2026 Novox Studio. Tous droits réservés.</div>
             </div>
         </footer>
     </div>
