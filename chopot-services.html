@@ -110,7 +110,8 @@
     .comparison-label{position:absolute;top:18px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;background:rgba(7,9,14,.77);border:1px solid rgba(255,255,255,.18);padding:7px 11px;border-radius:3px;pointer-events:none}
     .label-before{left:18px}.label-after{right:18px;color:#ffdfaa}
     .comparison-line{position:absolute;left:var(--position);top:0;bottom:0;width:2px;background:#f4e0b9;transform:translateX(-50%);pointer-events:none;z-index:3}
-    .comparison-handle{display:grid;place-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:1px solid #ead2aa;border-radius:50%;color:#352918;background:rgba(249,234,209,.96);box-shadow:0 4px 20px #0003;font-size:20px;letter-spacing:5px;padding-left:5px}
+    .comparison-handle{display:grid;place-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:1px solid #ead2aa;border-radius:50%;color:#352918;background:rgba(249,234,209,.96);box-shadow:0 4px 20px #0003}
+    .comparison-handle svg{width:24px;height:24px;stroke-width:1.8}
     .comparison input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;z-index:5;touch-action:pan-y}
     .comparison:focus-within{outline:2px solid var(--gold);outline-offset:5px}
     .comparison-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;letter-spacing:.09em;background:rgba(7,9,14,.72);border-radius:3px;padding:6px 12px;z-index:4;pointer-events:none;color:#f4e4cc}
@@ -253,7 +254,7 @@
             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="Après, inspiration : salle de bain contemporaine" width="1300" height="1000" loading="lazy" draggable="false">
             <img class="before-image" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="Avant, inspiration : salle de bain traditionnelle avec lavabo sur pied" width="1300" height="1000" loading="lazy" draggable="false">
             <span class="comparison-label label-before">Avant · Inspiration</span><span class="comparison-label label-after">Après · Inspiration</span>
-            <div class="comparison-line"><span class="comparison-handle" aria-hidden="true">‹ ›</span></div>
+            <div class="comparison-line"><span class="comparison-handle" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m9 7-5 5 5 5m6-10 5 5-5 5"/></svg></span></div>
             <span class="comparison-hint" aria-hidden="true">GLISSEZ POUR EXPLORER</span>
             <label for="comparison-range" class="visually-hidden">Répartition Avant / Après. Utilisez les flèches du clavier ou faites glisser.</label>
             <input id="comparison-range" type="range" min="0" max="100" value="50" aria-describedby="comparison-caption" aria-valuetext="50 % de l'ambiance avant">
