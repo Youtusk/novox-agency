@@ -1,1207 +1,457 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#08090d">
-<meta name="robots" content="noindex,nofollow">
-<title>Chopot Services — Rénovation Intérieure & Carrelage · Bruyères (88)</title>
-<meta name="description" content="Chopot Services : Artisan en rénovation intérieure, création de salles de bains sur-mesure et pose de carrelage à Bruyères, Épinal et Gérardmer. Devis gratuit sous 48h.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --bg: #07090e;
-    --bg-card: rgba(17, 22, 33, 0.75);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(245, 158, 11, 0.35);
-    --text: #f8fafc;
-    --muted: #94a3b8;
-    --accent: #f59e0b;
-    --accent-glow: rgba(245, 158, 11, 0.2);
-    --accent-light: #fbbf24;
-    --accent-dark: #b45309;
-    --line: rgba(255, 255, 255, 0.08);
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Demo Banner */
-  .demo-strip {
-    background: linear-gradient(90deg, #1e1b4b 0%, #1e293b 50%, #0f172a 100%);
-    border-bottom: 1px solid rgba(96, 165, 250, 0.25);
-    color: #cbd5e1;
-    text-align: center;
-    font-size: 11px;
-    padding: 7px 14px;
-    letter-spacing: 0.03em;
-    font-weight: 500;
-  }
-  .demo-strip strong { color: #60a5fa; font-weight: 700; }
-
-  /* Navigation */
-  header.nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(7, 9, 14, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-  }
-  .brand-name {
-    font-family: 'Manrope', sans-serif;
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #fff;
-  }
-  .brand-name span { color: var(--accent); }
-  .brand-sub {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  .nav-cta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .btn-nav-call {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border);
-    transition: all 0.2s;
-  }
-  .btn-nav-call:hover {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: var(--accent);
-    color: var(--accent-light);
-  }
-  .btn-nav-devis {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: #000;
-    font-weight: 800;
-    font-size: 13px;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.2s;
-    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
-  }
-  .btn-nav-devis:hover {
-    filter: brightness(1.1);
-    transform: translateY(-1px);
-  }
-
-  /* Wrap container */
-  .wrap {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  /* Hero Section */
-  .hero {
-    position: relative;
-    padding: 70px 0 60px;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(7, 9, 14, 0) 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 820px;
-    margin: 0 auto;
-  }
-  .pill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    color: var(--accent-light);
-    font-size: 11.5px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 30px;
-    margin-bottom: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .pill-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent);
-  }
-  h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(34px, 5.2vw, 62px);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .hero p.lead {
-    font-size: clamp(15px, 2vw, 18px);
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 32px;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 35px;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
-    color: #090a0f;
-    font-size: 15px;
-    font-weight: 800;
-    padding: 13px 26px;
-    border-radius: 10px;
-    text-decoration: none;
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
-    transition: all 0.2s;
-  }
-  .btn-primary:hover {
-    filter: brightness(1.12);
-    transform: translateY(-2px);
-  }
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 13px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Trust Bar */
-  .trust-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background: rgba(15, 20, 30, 0.8);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 18px 24px;
-    backdrop-filter: blur(12px);
-    margin-top: 10px;
-  }
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 6px 14px;
-  }
-  .trust-item:not(:last-child) {
-    border-right: 1px solid var(--border);
-  }
-  .trust-icon {
-    font-size: 24px;
-    line-height: 1;
-  }
-  .trust-text b {
-    display: block;
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #f1f5f9;
-  }
-  .trust-text span {
-    font-size: 11.5px;
-    color: var(--muted);
-  }
-
-  /* Section Title */
-  .section {
-    padding: 75px 0;
-    position: relative;
-  }
-  .section-head {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 45px;
-  }
-  .eyebrow {
-    font-family: 'Manrope', sans-serif;
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    margin-bottom: 10px;
-    display: block;
-  }
-  h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(26px, 3.8vw, 42px);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: #fff;
-    line-height: 1.25;
-  }
-  h2 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .section-head p {
-    color: var(--muted);
-    font-size: 14px;
-    margin-top: 10px;
-  }
-
-  /* Bento Grid Services */
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-  }
-  .bento-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-  .bento-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-  }
-  .bento-card.col-7 { grid-column: span 7; }
-  .bento-card.col-5 { grid-column: span 5; }
-  .bento-card.col-6 { grid-column: span 6; }
-  .bento-img {
-    height: 220px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  .bento-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.85) contrast(1.05);
-    transition: transform 0.6s ease;
-  }
-  .bento-card:hover .bento-img img {
-    transform: scale(1.05);
-  }
-  .bento-img-tag {
-    position: absolute;
-    bottom: 12px;
-    left: 14px;
-    background: rgba(7, 9, 14, 0.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: var(--accent-light);
-    font-size: 10.5px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .bento-body {
-    padding: 24px;
-  }
-  .bento-body h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
-  }
-  .bento-body p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.55;
-    margin-bottom: 16px;
-  }
-  .bento-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .bento-tag {
-    font-size: 11px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 3px 9px;
-    border-radius: 6px;
-    color: #cbd5e1;
-  }
-
-  /* Interactive Before/After Slider */
-  .comparison-wrapper {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 26px;
-    backdrop-filter: blur(12px);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .before-after-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 14px;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: ew-resize;
-  }
-  .ba-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .ba-after { z-index: 1; }
-  .ba-before {
-    z-index: 2;
-    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-  }
-  .ba-handle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: #fff;
-    z-index: 3;
-    pointer-events: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  .ba-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 900;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-    z-index: 4;
-  }
-  .ba-label {
-    position: absolute;
-    top: 14px;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    z-index: 5;
-    pointer-events: none;
-  }
-  .ba-label.before {
-    left: 14px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #cbd5e1;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .ba-label.after {
-    right: 14px;
-    background: rgba(245, 158, 11, 0.85);
-    color: #000;
-    font-weight: 800;
-  }
-  .ba-desc {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
-    color: var(--muted);
-    font-size: 12.5px;
-  }
-
-  /* Interactive Simulator */
-  .simulator-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px;
-    backdrop-filter: blur(14px);
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 36px;
-    align-items: center;
-  }
-  .sim-form h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .sim-form p {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 22px;
-  }
-  .sim-field {
-    margin-bottom: 18px;
-  }
-  .sim-label {
-    display: block;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #cbd5e1;
-    margin-bottom: 8px;
-  }
-  .sim-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .sim-opt-btn {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
-    color: #cbd5e1;
-    padding: 10px 8px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .sim-opt-btn.active {
-    background: rgba(245, 158, 11, 0.15);
-    border-color: var(--accent);
-    color: var(--accent-light);
-  }
-  .sim-range {
-    width: 100%;
-    accent-color: var(--accent);
-    margin: 8px 0;
-    cursor: pointer;
-  }
-  .range-value {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .sim-result {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(245, 158, 11, 0.2);
-    border-radius: 16px;
-    padding: 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .sim-result::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  }
-  .sim-tag {
-    font-size: 10.5px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-  }
-  .sim-price {
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(32px, 3.8vw, 44px);
-    font-weight: 800;
-    color: #fff;
-    margin: 10px 0 6px;
-  }
-  .sim-note {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 22px;
-    line-height: 1.45;
-  }
-  .btn-sim-send {
-    width: 100%;
-    background: var(--accent);
-    color: #000;
-    font-weight: 800;
-    font-size: 14px;
-    padding: 12px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.2s;
-  }
-  .btn-sim-send:hover {
-    filter: brightness(1.1);
-  }
-
-  /* Contact Section */
-  .contact-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    backdrop-filter: blur(12px);
-  }
-  .contact-info h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-  .contact-info p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-  .info-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .info-icon {
-    font-size: 20px;
-    line-height: 1;
-    color: var(--accent);
-  }
-  .info-text b {
-    display: block;
-    color: #f8fafc;
-    font-size: 13.5px;
-  }
-  .info-text span {
-    color: var(--muted);
-    font-size: 12.5px;
-  }
-
-  /* Form */
-  .contact-form form {
-    display: grid;
-    gap: 14px;
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .form-input, .form-textarea, .form-select {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: #fff;
-    font-family: inherit;
-    font-size: 13.5px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus, .form-textarea:focus, .form-select:focus {
-    border-color: var(--accent);
-  }
-  .form-textarea {
-    resize: vertical;
-    min-height: 90px;
-  }
-  .btn-submit {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    color: #000;
-    font-weight: 800;
-    font-size: 14px;
-    padding: 13px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-submit:hover {
-    filter: brightness(1.1);
-  }
-  .form-note {
-    font-size: 11px;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  /* Footer */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 35px 0 100px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  /* Mobile Floating Bar */
-  .mobile-bar {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(7, 9, 14, 0.95);
-    border-top: 1px solid var(--border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-    z-index: 200;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .btn-mob-call {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background: #10b981;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 11px;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-  .btn-mob-devis {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    background: var(--accent);
-    color: #000;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 11px;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-
-  /* Responsive Queries */
-  @media (max-width: 900px) {
-    .bento-card.col-7, .bento-card.col-5, .bento-card.col-6 {
-      grid-column: span 12;
-    }
-    .trust-strip {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .trust-item:not(:last-child) {
-      border-right: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
-    }
-    .simulator-box {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .contact-box {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      padding: 24px;
-    }
-  }
-  @media (max-width: 600px) {
-    .mobile-bar { display: grid; }
-    .form-row { grid-template-columns: 1fr; }
-    .sim-options { grid-template-columns: 1fr; }
-    .nav-inner { padding: 12px 16px; }
-    .btn-nav-call { display: none; }
-    .hero { padding: 45px 0 40px; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07090e">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="CHOPOT SERVICES, Anthony Chopot à Bruyères : salles de bains sur mesure, carrelage, rénovation intérieure et plomberie sanitaire dans les Vosges.">
+  <title>CHOPOT SERVICES — L'art de rénover, dans les Vosges.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307090e'/%3E%3Cpath d='M45 18H24L16 26v20h29M26 26h19v12H26' fill='none' stroke='%23fbbf24' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* Single-file Novox prototype. Photos and typefaces are loaded online. */
+    :root{color-scheme:dark;--bg:#07090e;--surface:#101218;--text:#f4f1e9;--muted:#b1b0ad;--amber:#f59e0b;--gold:#fbbf24;--line:rgba(255,255,255,.13);--glass:rgba(255,255,255,.035);--serif:'Playfair Display',Georgia,serif;--sans:Manrope,Arial,sans-serif;--max:1280px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+    body,h1,h2,h3,p,figure{margin:0}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+    button{cursor:pointer}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+    ::selection{background:var(--gold);color:var(--bg)}
+    [hidden]{display:none!important}
+    .wrap{width:min(var(--max),calc(100% - 96px));margin-inline:auto}
+    .eyebrow{font-size:12px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px}
+    .eyebrow::before{content:'';width:28px;height:1px;background:currentColor}
+    .serif{font-family:var(--serif);font-weight:400}
+    .muted{color:var(--muted)}
+    .small{font-size:13px;line-height:1.65}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:52px;padding:14px 23px;border:1px solid transparent;border-radius:4px;font-size:14px;font-weight:700;line-height:1.5;transition:background .2s,border-color .2s,transform .2s}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--gold);color:#171109}
+    .button.primary:hover{background:#ffd46b}
+    .button.secondary{border-color:var(--line);background:rgba(255,255,255,.025);color:var(--text)}
+    .button.secondary:hover{border-color:#aa8046;background:rgba(251,191,36,.05)}
+    .button:disabled{cursor:wait;opacity:.65;transform:none}
+    .skip{position:fixed;top:12px;left:12px;padding:12px;background:var(--gold);color:var(--bg);z-index:100;transform:translateY(-160%)}
+    .skip:focus{transform:none}
+    .prototype{padding:8px 20px;text-align:center;border-bottom:1px solid rgba(251,191,36,.13);background:#14120e;color:#ccc4b6;font-size:11px;letter-spacing:.025em}
+    .prototype strong{color:var(--gold);font-size:10px;letter-spacing:.14em}
+    .header{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(7,9,14,.91);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .nav{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand-mark{width:43px;height:43px;color:var(--gold)}
+    .brand-name{font-size:18px;line-height:1.05;font-weight:800;letter-spacing:.085em}
+    .brand-name span{display:block;font-size:9px;letter-spacing:.4em;font-weight:500;margin-top:9px;color:#c5bbaa}
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:13px;font-weight:600;color:#c7c5c0}
+    .nav-links>a:not(.button){padding:12px 0}
+    .nav-links>a:hover{color:var(--gold)}
+    .nav-links .button{min-height:44px;padding:11px 18px;font-size:12px}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:4px;width:44px;height:44px;align-items:center;justify-content:center}
+    .hero{position:relative;isolation:isolate;min-height:690px;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+    .hero-copy{padding:72px 0 82px;position:relative;z-index:2}
+    .hero .eyebrow{margin-bottom:27px}
+    h1{font-family:var(--serif);font-size:clamp(48px,5.2vw,76px);font-weight:400;line-height:1.11;letter-spacing:-.035em}
+    h1 em{color:#e9b966;font-weight:400}
+    .hero-description{max-width:450px;color:#bebcb8;margin-top:25px;font-size:15px;line-height:1.9}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .hero-signature{display:flex;align-items:center;gap:14px;margin-top:40px;color:var(--muted);font-size:12px}
+    .signature-icon{height:38px;width:38px;border:1px solid #69532f;display:grid;place-items:center;border-radius:50%;color:#e9b966}
+    .hero-signature strong{display:block;font-size:13px;color:var(--text);font-weight:600}
+    .hero-visual{position:absolute;inset:0 -48px 0 42%;z-index:0;overflow:hidden}
+    .hero-visual img{object-position:60% 56%}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(7,9,14,.78) 11%,rgba(7,9,14,.10) 49%),linear-gradient(0deg,var(--bg),transparent 30%,rgba(7,9,14,.13))}
+    .hero-caption{position:absolute;right:0;bottom:40px;z-index:2;max-width:250px;padding:18px 24px;border:1px solid rgba(255,255,255,.21);border-radius:4px;background:rgba(20,20,19,.61);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .hero-caption span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#e3cda8}
+    .hero-caption p{font:400 22px/1.35 var(--serif);margin-top:4px}
+    .hero-caption small{display:block;font-size:10px;color:#c9c3b7;margin-top:9px}
+    .hero-number{position:absolute;right:0;top:36px;z-index:2;color:rgba(255,255,255,.7);font-size:10px;letter-spacing:.2em;writing-mode:vertical-rl}
+    .trade-strip{border-block:1px solid var(--line)}
+    .trade-strip .wrap{display:flex;justify-content:space-between;gap:20px;padding-block:23px}
+    .trade-strip span{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.035em;color:#c2bfba}
+    .trade-strip svg{width:20px;height:20px;color:#caa66c}
+    .section{padding:104px 0}
+    .section-heading{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:38px}
+    .section-heading h2,.section-title{font:400 clamp(34px,3.5vw,49px)/1.17 var(--serif);letter-spacing:-.025em;margin-top:16px}
+    .section-heading>p{max-width:345px;color:var(--muted);font-size:14px;line-height:1.9}
+    .section-heading em,.section-title em{font-weight:400;color:#dfb779}
+    .bento{display:grid;grid-template-columns:1.3fr .9fr 1fr;grid-template-rows:285px 260px;gap:16px}
+    .service{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:28px;display:flex;align-items:flex-end;min-width:0}
+    .service::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(7,9,14,.97) 0%,rgba(7,9,14,.74) 27%,rgba(7,9,14,.1) 76%)}
+    .service img{position:absolute;inset:0;z-index:-2;transition:transform .7s ease}
+    .service:hover img{transform:scale(1.045)}
+    .service-bath{grid-row:span 2}
+    .service-tile{grid-column:span 2}
+    .service-number{position:absolute;left:27px;top:22px;font:400 14px var(--serif);border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:5px}
+    .service h3{font:400 27px/1.2 var(--serif);margin-bottom:11px}
+    .service p{font-size:13px;line-height:1.8;color:#d2cec6;max-width:360px}
+    .service-bath h3{font-size:36px;max-width:260px}
+    .service-bath p{max-width:290px}
+    .service-tag{display:inline-block;border:1px solid rgba(244,212,161,.4);color:#f6d7a3;background:rgba(24,20,12,.35);padding:4px 10px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:20px;border-radius:2px}
+    .image-note{margin-top:15px;color:#aaa59c;font-size:11px;text-align:right}
+    .comparison-section{border-block:1px solid var(--line);background:linear-gradient(125deg,rgba(159,113,49,.04),transparent 50%)}
+    .comparison-layout{display:grid;grid-template-columns:.8fr 1.35fr;gap:70px;align-items:center}
+    .comparison-copy>p{color:var(--muted);font-size:14px;margin-top:24px;max-width:340px}
+    .detail-list{list-style:none;margin:28px 0 0;padding:0}
+    .detail-list li{display:flex;gap:16px;align-items:baseline;border-top:1px solid var(--line);padding:15px 0;font-size:13px;color:#d4d0c7}
+    .detail-list span{color:#c69a5c;font-size:10px;font-weight:600}
+    .comparison{position:relative;aspect-ratio:1.3;border:1px solid #5a4b34;border-radius:5px;overflow:hidden;--position:50%;touch-action:pan-y;background:var(--surface);user-select:none}
+    .comparison>img{position:absolute;inset:0;pointer-events:none;object-position:center}
+    .comparison .before-image{clip-path:inset(0 calc(100% - var(--position)) 0 0)}
+    .comparison::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(7,9,14,.3),transparent 30%)}
+    .comparison-label{position:absolute;top:18px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;background:rgba(7,9,14,.77);border:1px solid rgba(255,255,255,.18);padding:7px 11px;border-radius:3px;pointer-events:none}
+    .label-before{left:18px}.label-after{right:18px;color:#ffdfaa}
+    .comparison-line{position:absolute;left:var(--position);top:0;bottom:0;width:2px;background:#f4e0b9;transform:translateX(-50%);pointer-events:none;z-index:3}
+    .comparison-handle{display:grid;place-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border:1px solid #ead2aa;border-radius:50%;color:#352918;background:rgba(249,234,209,.96);box-shadow:0 4px 20px #0003;font-size:20px;letter-spacing:5px;padding-left:5px}
+    .comparison input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;z-index:5;touch-action:pan-y}
+    .comparison:focus-within{outline:2px solid var(--gold);outline-offset:5px}
+    .comparison-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;letter-spacing:.09em;background:rgba(7,9,14,.72);border-radius:3px;padding:6px 12px;z-index:4;pointer-events:none;color:#f4e4cc}
+    .comparison-caption{font-size:11px;line-height:1.7;color:#a7a39b;margin-top:15px}
+    .sim-heading{max-width:580px;margin-bottom:36px}
+    .sim-heading p{color:var(--muted);font-size:14px;margin-top:18px}
+    .simulator{display:grid;grid-template-columns:1.35fr 1fr;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:linear-gradient(130deg,rgba(255,255,255,.045),rgba(255,255,255,.014))}
+    .sim-controls{padding:38px 40px}
+    fieldset{border:0;margin:0;padding:0;min-width:0}
+    legend,.field-label{font-size:13px;font-weight:700;margin-bottom:15px;display:block}
+    .step{font-weight:500;color:#c29c66;font-size:11px;margin-right:12px}
+    .project-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .project-option{position:relative;cursor:pointer;min-width:0}
+    .project-option input{position:absolute;opacity:0}
+    .project-option span{height:90px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;border:1px solid var(--line);border-radius:4px;padding:10px 5px;font-size:11px;font-weight:600;text-align:center;background:rgba(7,9,14,.3);transition:border-color .2s,background .2s}
+    .project-option input:checked+span{border-color:#b58c48;background:rgba(245,158,11,.08);color:#f5ce8a}
+    .project-option input:focus-visible+span{outline:2px solid var(--gold);outline-offset:4px}
+    .surface-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:34px}
+    .surface-heading label{margin:0}
+    .surface-value{display:flex;align-items:center;gap:8px;white-space:nowrap;color:var(--muted);font-size:14px}
+    .surface-value input{width:76px;border:1px solid var(--line);background:#0d1016;color:var(--text);padding:7px 8px;text-align:center;border-radius:4px;line-height:1.5}
+    .surface-range{width:100%;height:30px;margin:18px 0 0;accent-color:var(--gold);cursor:pointer}
+    .range-limits{display:flex;justify-content:space-between;font-size:11px;color:#b2ada3}
+    .sim-explainer{border-top:1px solid var(--line);padding-top:20px;margin-top:25px;font-size:12px;line-height:1.8;color:var(--muted)}
+    .sim-result{min-width:0;padding:40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border-left:1px solid var(--line);background:linear-gradient(135deg,rgba(143,98,27,.13),rgba(143,98,27,.02))}
+    .result-label{color:#d6b883;letter-spacing:.13em;text-transform:uppercase;font-size:10px;font-weight:600}
+    .price{display:block;font:400 clamp(28px,3vw,42px)/1.3 var(--serif);letter-spacing:-.03em;margin-top:14px;color:#f6e3c2;white-space:normal}
+    .price-context{font-size:12px;color:#c6bba8;margin-top:8px}
+    .result-note{font-size:11px;color:#b6afa3;line-height:1.8;margin:22px 0}
+    .sim-result .button{width:100%;font-size:13px}
+    .result-contact{align-self:center;margin-top:10px;font-size:11px;color:#c9bdab}
+    .method{border-top:1px solid var(--line);padding-top:64px;margin-top:70px;display:grid;grid-template-columns:1fr 2fr;gap:64px}
+    .method h3{font:400 30px/1.3 var(--serif);margin-top:12px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+    .method-number{font:400 25px var(--serif);color:#bd9154}
+    .steps h4{font-size:13px;margin:14px 0 9px;font-weight:700}.steps p{font-size:12px;color:var(--muted)}
+    .contact-section{padding:90px 0 100px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 0 70%,rgba(143,98,27,.06),transparent 60%)}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.15fr;gap:90px;align-items:start}
+    .contact-copy>p{color:var(--muted);font-size:14px;max-width:355px;margin-top:22px}
+    .contact-phone{display:flex;align-items:center;gap:14px;font-size:28px;letter-spacing:-.03em;margin-top:34px;font-weight:600}
+    .contact-phone svg{color:#d8ae70}
+    .contact-address{margin-top:26px;font-style:normal;color:#b9b4aa;font-size:13px;line-height:1.9}
+    .contact-address strong{font-weight:600;color:#e4ddd1}
+    .areas{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px}
+    .areas span{border:1px solid var(--line);border-radius:3px;padding:5px 10px;font-size:10px;color:#c9c0b3}
+    .contact-form{padding:34px;border:1px solid var(--line);background:var(--glass);border-radius:6px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+    .contact-form h3{font:400 26px var(--serif);margin-bottom:7px}
+    .form-intro{color:var(--muted);font-size:11px;margin-bottom:24px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+    .field{display:flex;flex-direction:column;gap:7px;min-width:0}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:11px;font-weight:600;color:#d7d2c8}
+    .field input,.field select,.field textarea{width:100%;min-height:46px;background:#0b0d12;color:var(--text);border:1px solid #35363b;border-radius:3px;padding:11px 12px;font-size:14px;line-height:1.5}
+    .field input::placeholder,.field textarea::placeholder{color:#827f7b}
+    .field textarea{resize:vertical;min-height:105px}
+    .field :is(input,select,textarea):focus{outline:2px solid #b68b42;outline-offset:1px}
+    .consent{display:flex;align-items:flex-start;gap:10px;margin:19px 0;font-size:11px;color:#bbb5aa;line-height:1.7}
+    .consent input{width:17px;height:17px;flex:none;margin:3px 0 0;accent-color:var(--gold)}
+    .contact-form .button{width:100%}
+    .form-status{margin-top:15px;font-size:13px;color:#f0ce93}
+    .form-status.error{color:#ffb8a8}
+    .form-fallback{font-size:11px;color:#c2b8a9;margin-top:12px;text-align:center}
+    .form-fallback a{text-decoration:underline;text-underline-offset:3px}
+    .honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .footer{border-top:1px solid var(--line);padding:30px 0}
+    .footer-top{display:flex;justify-content:space-between;align-items:center;gap:25px}
+    .footer-brand{font-size:13px;letter-spacing:.08em;font-weight:700}
+    .footer-brand span{display:block;font-size:10px;letter-spacing:.02em;color:#a19b90;font-weight:400;margin-top:4px}
+    .footer-credit{font-size:10px;color:#a9a093}.footer-credit strong{font-size:10px;letter-spacing:.13em;color:#d5b580}
+    .legal-toggle{background:none;color:#c1b8a8;border:0;padding:12px 0;font-size:11px;text-decoration:underline;text-underline-offset:4px}
+    .legal{border-top:1px solid var(--line);padding-top:20px;margin-top:22px;color:#a9a399;font-size:12px;line-height:1.8}
+    .legal p+p{margin-top:12px}
+    .mobile-actions{display:none}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(min-width:1440px){.hero-visual{right:calc((1280px - 100vw)/2)}}
+    @media(max-width:1100px){.wrap{width:calc(100% - 64px)}.nav-links{gap:20px}.hero-visual{right:-32px}.hero{min-height:650px}.hero-copy{max-width:550px}.hero-caption{right:5px}.bento{grid-template-columns:1.2fr 1fr 1fr}.service{padding:23px}.service h3{font-size:25px}.service-bath h3{font-size:32px}.comparison-layout{gap:40px}.contact-grid{gap:45px}.sim-controls,.sim-result{padding:30px}.method{gap:40px}.steps{gap:20px}}
+    @media(max-width:900px){.nav{min-height:76px}.nav-links{gap:16px;font-size:12px}.nav-links .button{display:none}.hero{min-height:650px;grid-template-columns:1fr}.hero-copy{max-width:530px}.hero-visual{left:28%}.hero-visual::after{background:linear-gradient(90deg,var(--bg),rgba(7,9,14,.79) 24%,rgba(7,9,14,.3)),linear-gradient(0deg,var(--bg),transparent 50%)}.hero-caption{bottom:30px;right:0;max-width:225px;padding:14px 18px}.hero-caption p{font-size:19px}.trade-strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px 30px}.section{padding:76px 0}.section-heading{align-items:start;gap:25px}.section-heading>p{max-width:290px}.bento{grid-template-columns:1fr 1fr;grid-template-rows:280px 260px}.service-bath{grid-row:span 1}.service-tile{grid-column:span 1}.service-bath h3{font-size:29px}.service-bath .service-tag{display:none}.comparison-layout{grid-template-columns:1fr;gap:30px}.comparison-copy{display:grid;grid-template-columns:1fr 1fr;gap:0 35px}.comparison-copy .eyebrow,.comparison-copy .section-title{grid-column:1}.comparison-copy>p{grid-column:1;margin-top:18px}.detail-list{grid-column:2;grid-row:2/4;margin-top:0;align-self:center}.comparison{aspect-ratio:1.6}.simulator{grid-template-columns:1.15fr 1fr}.project-options{gap:6px}.project-option span{font-size:10px}.sim-controls,.sim-result{padding:25px}.price{font-size:30px}.method{grid-template-columns:1fr;gap:30px;margin-top:50px;padding-top:45px}.contact-grid{grid-template-columns:1fr 1.1fr;gap:30px}.contact-form{padding:25px}.form-grid{grid-template-columns:1fr}.contact-phone{font-size:24px}.contact-section{padding-block:75px}}
+    @media(max-width:640px){html{scroll-padding-top:90px}body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}.wrap{width:calc(100% - 40px)}.prototype{font-size:9px;padding:7px 14px;line-height:1.7}.prototype strong{font-size:9px}.nav{min-height:72px}.brand-mark{width:36px;height:36px}.brand-name{font-size:16px}.brand-name span{font-size:8px;margin-top:7px}.menu-toggle{display:flex}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(7,9,14,.98);padding:16px 20px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:4px;font-size:14px}.nav-links.is-open{display:flex}.nav-links>a:not(.button){padding:12px}.nav-links .button{display:flex}.hero{min-height:0;display:flex;flex-direction:column;align-items:stretch;padding-top:0}.hero-copy{padding:42px 0 25px;max-width:none}.hero .eyebrow{font-size:10px;letter-spacing:.15em;margin-bottom:22px}h1{font-size:clamp(42px,10.5vw,64px);line-height:1.13}.hero-description{font-size:14px;line-height:1.8;max-width:440px;margin-top:23px}.hero-actions{gap:10px;margin-top:24px}.hero-actions .button{padding:13px 16px;font-size:12px;min-height:49px}.hero-signature{margin-top:25px;font-size:11px}.hero-signature strong{font-size:12px}.hero-visual{position:relative;inset:auto;height:340px;margin:0 -20px;order:2}.hero-visual img{object-position:50% 54%}.hero-visual::after{background:linear-gradient(0deg,var(--bg),transparent 40%),linear-gradient(180deg,var(--bg),transparent 30%)}.hero-caption{bottom:27px;right:0;max-width:230px;padding:14px 18px}.hero-caption p{font-size:20px}.hero-number{display:none}.trade-strip .wrap{padding-block:20px;gap:16px 10px}.trade-strip span{font-size:10px;gap:9px}.trade-strip svg{width:18px;height:18px}.section{padding:62px 0}.section-heading{display:block;margin-bottom:28px}.section-heading h2,.section-title{font-size:35px}.section-heading>p{margin-top:19px;max-width:410px;font-size:13px}.eyebrow{font-size:10px}.bento{grid-template-columns:1fr;grid-template-rows:380px 285px 285px 285px;gap:13px}.service{padding:25px}.service h3{font-size:29px}.service-bath h3{font-size:35px}.service-bath .service-tag{display:inline-block}.service p{font-size:13px;max-width:360px}.service::after{background:linear-gradient(0deg,rgba(7,9,14,.97),rgba(7,9,14,.7) 36%,rgba(7,9,14,.03) 85%)}.image-note{font-size:10px;text-align:left}.comparison-copy{display:block}.comparison-copy>p{max-width:none;font-size:13px}.detail-list{margin-top:22px}.detail-list li{padding:12px 0}.comparison{aspect-ratio:1.04}.comparison-label{font-size:9px;top:12px;padding:6px 8px}.label-before{left:10px}.label-after{right:10px}.comparison-handle{width:44px;height:44px}.comparison-hint{font-size:9px;bottom:14px}.comparison-caption{font-size:10px}.sim-heading{margin-bottom:28px}.sim-heading p{font-size:13px}.simulator{grid-template-columns:1fr}.sim-controls{padding:25px 22px}.project-options{gap:8px}.project-option span{font-size:10px}.surface-heading{margin-top:27px}.surface-heading .field-label{font-size:12px}.sim-result{padding:28px 24px;border-top:1px solid var(--line);border-left:0}.price{font-size:39px}.result-note{font-size:11px;max-width:400px;margin-block:18px}.sim-result .button{max-width:none}.steps{grid-template-columns:1fr;gap:23px}.steps>div{display:grid;grid-template-columns:35px 1fr;gap:0 14px}.method-number{grid-row:span 2}.steps h4{margin:0 0 5px}.steps p{grid-column:2}.method{margin-top:42px;padding-top:35px}.method h3{font-size:29px}.contact-section{padding:60px 0}.contact-grid{grid-template-columns:1fr;gap:35px}.contact-copy>p{font-size:13px;max-width:none}.contact-phone{font-size:27px;margin-top:24px}.contact-address{margin-top:20px}.areas{margin-top:20px}.contact-form{padding:24px 20px}.form-grid{grid-template-columns:1fr 1fr;gap:16px 12px}.field.email,.field.town{grid-column:1/-1}.field input,.field select,.field textarea{font-size:16px}.consent{font-size:11px}.footer-top{flex-wrap:wrap;gap:18px}.footer-credit{order:3;width:100%}.footer{padding-block:25px}.mobile-actions{display:grid;grid-template-columns:1fr 61px;gap:8px;position:fixed;bottom:0;left:0;right:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(7,9,14,.96);border-top:1px solid #58492f;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.mobile-call{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:4px;background:var(--gold);color:#171109;min-height:51px;font-size:12px;font-weight:700;line-height:1.5}.mobile-call b{font-weight:800;white-space:nowrap}.mobile-sms{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;border:1px solid #5c4d36;border-radius:4px;font-size:9px;color:#f1d2a1}.mobile-sms svg{width:19px;height:19px}}
+    @media(max-width:360px){.wrap{width:calc(100% - 32px)}.hero-visual{margin-inline:-16px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .button{width:100%}.form-grid{grid-template-columns:1fr}.price{font-size:34px}.project-option span{font-size:9px;padding-inline:2px}.sim-controls{padding-inline:18px}.mobile-call{font-size:11px;gap:6px}.mobile-actions{grid-template-columns:1fr 52px}.trade-strip span{font-size:9px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+    @media print{.header,.prototype,.mobile-actions,.hero-actions,.contact-form,.simulator,.legal-toggle{display:none!important}body{background:white;color:black;padding:0}.section,.contact-section{padding:25px 0}.wrap{width:100%}.hero{min-height:350px}.hero-visual{opacity:.4}.legal{display:block!important}}
+  </style>
 </head>
 <body>
-
-<!-- Démo Banner -->
-<div class="demo-strip">
-  ⚡ <strong>NOVOX STUDIO</strong> · Prototype Privé interactif conçu sur-mesure pour <strong>CHOPOT SERVICES (Anthony Chopot)</strong>.
-</div>
-
-<!-- Header Navigation -->
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#accueil" class="brand">
-      <div class="brand-name">CHOPOT <span>SERVICES</span></div>
-      <div class="brand-sub">Rénovation & Carrelage · Vosges (88)</div>
-    </a>
-    <div class="nav-cta">
-      <a href="tel:0607218612" class="btn-nav-call">
-        📞 06 07 21 86 12
+  <svg xmlns="http://www.w3.org/2000/svg" class="visually-hidden" aria-hidden="true">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="m7 3 3 5-2.2 2.2a15 15 0 0 0 6 6L16 14l5 3-1 4c-9 1-18-8-17-17Z"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24"><path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM5 12V5a3 3 0 0 1 6 0M7 20v2m10-2v2m-7-15h3"/></symbol>
+    <symbol id="i-tile" viewBox="0 0 24 24"><path d="M3 3h18v18H3Zm9 0v18M3 12h18"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="m2 11 10-8 10 8M5 9v12h14V9M9 21v-8h6v8"/></symbol>
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M12 2C10 7 5 10 5 15a7 7 0 0 0 14 0c0-5-5-8-7-13ZM9 16a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 6-7 12-7 12S5 16 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 4H3v14h5v4l5-4h8ZM7 9h10M7 13h6"/></symbol>
+  </svg>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <div class="prototype"><strong>NOVOX STUDIO</strong> · Prototype Privé interactif conçu sur-mesure pour CHOPOT SERVICES</div>
+  <header class="header">
+    <div class="nav wrap">
+      <a class="brand" href="#accueil" aria-label="Chopot Services, accueil">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M37 9H18L9 18v21h28M20 18h17v12H20" stroke-width="1.7"/><path d="M5 5h12M5 5v12M43 43H31M43 43V31" opacity=".35"/></svg>
+        <span class="brand-name">CHOPOT<span>SERVICES</span></span>
       </a>
-      <a href="#simulateur" class="btn-nav-devis">
-        Simuler mon projet
-      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <nav class="nav-links" id="navigation" aria-label="Navigation principale">
+        <a href="#savoir-faire">Savoir-faire</a><a href="#transformation">Avant / Après</a><a href="#estimation">Votre estimation</a>
+        <a class="button secondary" href="#contact">Parlons de votre projet</a>
+      </nav>
     </div>
-  </div>
-</header>
-
-<main>
-  <!-- Hero Section -->
-  <section class="hero" id="accueil">
-    <div class="wrap">
-      <div class="hero-content">
-        <div class="pill-badge">Artisan Vosgien · Bruyères & Environs</div>
-        <h1>L'art de la rénovation intérieure.<br><em>Salles de bains & Carrelage.</em></h1>
-        <p class="lead">
-          De la création complète de salle de bain avec douche à l'italienne à la pose minutieuse de carrelage grand format : donnez vie à vos espaces avec un artisan passionné et rigoureux.
-        </p>
-        <div class="hero-actions">
-          <a href="tel:0607218612" class="btn-primary">
-            📞 Appeler Anthony Chopot (06 07 21 86 12)
-          </a>
-          <a href="#avant-apres" class="btn-secondary">
-            👁️ Voir les réalisations Avant/Après
-          </a>
-        </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap" id="accueil" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Artisan à Bruyères · Vosges</p>
+        <h1 id="hero-title">Un nouvel espace.<br>Une autre façon<br><em>d'être chez soi.</em></h1>
+        <p class="hero-description">Salle de bain, carrelage, rénovation intérieure.<br>Anthony Chopot donne forme à vos envies, du premier raccord aux dernières finitions.</p>
+        <div class="hero-actions"><a class="button primary" href="#estimation">Estimer mon projet</a><a class="button secondary" href="#savoir-faire">Découvrir le savoir-faire</a></div>
+        <div class="hero-signature"><span class="signature-icon"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><strong>Anthony Chopot, votre interlocuteur</strong>À Bruyères et dans les Vosges.</div></div>
       </div>
+      <div class="hero-visual"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" alt="Inspiration : salle de bain lumineuse aux matériaux naturels" width="1800" height="1400" fetchpriority="high"></div>
+      <span class="hero-number" aria-hidden="true">MATIÈRES · LUMIÈRE · DÉTAILS</span>
+      <div class="hero-caption"><span>L'espace salle de bain</span><p>Le confort se joue<br>dans les détails.</p><small>Photographie d'inspiration · Unsplash</small></div>
+    </section>
+    <div class="trade-strip"><div class="wrap"><span><svg aria-hidden="true"><use href="#i-bath"/></svg>Salles de bains sur mesure</span><span><svg aria-hidden="true"><use href="#i-tile"/></svg>Carrelage &amp; dallage</span><span><svg aria-hidden="true"><use href="#i-house"/></svg>Rénovation intérieure</span><span><svg aria-hidden="true"><use href="#i-water"/></svg>Plomberie sanitaire</span></div></div>
 
-      <!-- Trust Strip -->
-      <div class="trust-strip">
-        <div class="trust-item">
-          <div class="trust-icon">📍</div>
-          <div class="trust-text">
-            <b>Artisan de Proximité</b>
-            <span>11 place Henri Thomas, 88600 Bruyères</span>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">📐</div>
-          <div class="trust-text">
-            <b>Intervention Locale</b>
-            <span>Bruyères · Épinal · Gérardmer · Saint-Dié</span>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">🛡️</div>
-          <div class="trust-text">
-            <b>Garantie Décennale</b>
-            <span>Travail soigné, devis clair sous 48h</span>
-          </div>
-        </div>
+    <section class="section wrap" id="savoir-faire" aria-labelledby="services-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / Le savoir-faire</p><h2 id="services-title">La matière, le geste,<br><em>le sens du détail.</em></h2></div><p>Quatre savoir-faire complémentaires pour repenser votre intérieur, avec un même regard sur les finitions.</p></div>
+      <div class="bento">
+        <article class="service service-bath"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Inspiration de salle de bain contemporaine" width="900" height="1200" loading="lazy"><span class="service-number">01</span><div><span class="service-tag">Du sol à la robinetterie</span><h3>Votre salle de bain,<br>à votre mesure.</h3><p>Douche à l'italienne, étanchéité SPEC, faïence grand format et meuble vasque. Un espace pensé pour vos habitudes.</p></div></article>
+        <article class="service service-tile"><img src="https://images.unsplash.com/photo-1771929662486-f793e08f0f16?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Inspiration de carrelage grand format aspect marbre dans une douche vitrée" width="1200" height="700" loading="lazy"><span class="service-number">02</span><div><h3>Des sols qui donnent le ton.</h3><p>Carrelage 60 × 120, imitation parquet bois et dallage de terrasse. La continuité des matières, dedans comme dehors.</p></div></article>
+        <article class="service"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Inspiration d'aménagement intérieur et de finitions" width="800" height="700" loading="lazy"><span class="service-number">03</span><div><h3>Repenser l'intérieur.</h3><p>Plâtrerie, cloisons, faux plafonds avec spots LED et finitions peintures.</p></div></article>
+        <article class="service"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=800&amp;q=85" alt="Inspiration d'équipements sanitaires de salle de bain" width="800" height="700" loading="lazy"><span class="service-number">04</span><div><h3>L'essentiel, bien raccordé.</h3><p>Réseaux d'eau, WC suspendus, chauffe-eau et raccordements sanitaires.</p></div></article>
       </div>
-    </div>
-  </section>
+      <p class="image-note">Sélection d'ambiances Unsplash · Photographies d'inspiration, non issues de chantiers CHOPOT SERVICES.</p>
+    </section>
 
-  <!-- Bento Grid Prestations -->
-  <section class="section" id="prestations">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">SAVOIR-FAIRE ARTISANAL</span>
-        <h2>Des finitions d'exception.<br><em>Pour chaque pièce de votre maison.</em></h2>
-        <p>Un interlocuteur unique pour coordonner l'ensemble de votre chantier de rénovation.</p>
+    <section class="section comparison-section" id="transformation" aria-labelledby="comparison-title">
+      <div class="wrap comparison-layout">
+        <div class="comparison-copy"><p class="eyebrow">02 / Se projeter</p><h2 class="section-title" id="comparison-title">Même envie de confort.<br><em>Nouvelle perspective.</em></h2><p>Imaginez votre prochaine salle de bain. Faites glisser le curseur pour passer d'une ambiance à l'autre et préciser ce qui vous plaît.</p><ul class="detail-list"><li><span>01</span>Repenser la circulation</li><li><span>02</span>Accorder les matières</li><li><span>03</span>Soigner chaque finition</li></ul></div>
+        <figure>
+          <div class="comparison" id="comparison">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="Après, inspiration : salle de bain contemporaine" width="1300" height="1000" loading="lazy" draggable="false">
+            <img class="before-image" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&amp;fit=crop&amp;w=1300&amp;q=85" alt="Avant, inspiration : salle de bain traditionnelle avec lavabo sur pied" width="1300" height="1000" loading="lazy" draggable="false">
+            <span class="comparison-label label-before">Avant · Inspiration</span><span class="comparison-label label-after">Après · Inspiration</span>
+            <div class="comparison-line"><span class="comparison-handle" aria-hidden="true">‹ ›</span></div>
+            <span class="comparison-hint" aria-hidden="true">GLISSEZ POUR EXPLORER</span>
+            <label for="comparison-range" class="visually-hidden">Répartition Avant / Après. Utilisez les flèches du clavier ou faites glisser.</label>
+            <input id="comparison-range" type="range" min="0" max="100" value="50" aria-describedby="comparison-caption" aria-valuetext="50 % de l'ambiance avant">
+          </div>
+          <figcaption id="comparison-caption" class="comparison-caption">Comparateur d'inspiration : deux photographies distinctes, pour illustrer un changement d'ambiance. Ce n'est pas l'avant / après d'un même chantier ni une réalisation d'Anthony Chopot.</figcaption>
+        </figure>
       </div>
+    </section>
 
-      <div class="bento-grid">
-        <!-- Card 1: Salle de bain (Col 7) -->
-        <article class="bento-card col-7">
-          <div class="bento-img">
-            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=85" alt="Création de salle de bain avec douche à l'italienne" loading="lazy">
-            <span class="bento-img-tag">Spécialité Phare</span>
-          </div>
-          <div class="bento-body">
-            <h3>Salles de Bains & Douches à l'Italienne</h3>
-            <p>Transformation complète clé en main : receveur extra-plat, étanchéité sous carrelage (SPEC), pose de faïence murale grand format, meuble vasque sur-mesure et robinetterie encastrée moderne.</p>
-            <div class="bento-tags">
-              <span class="bento-tag">Douche à l'italienne</span>
-              <span class="bento-tag">Faïence & Mosaïque</span>
-              <span class="bento-tag">Plomberie sanitaire</span>
-              <span class="bento-tag">Clé en main</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2: Carrelage (Col 5) -->
-        <article class="bento-card col-5">
-          <div class="bento-img">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85" alt="Pose de carrelage grand format et dallage" loading="lazy">
-            <span class="bento-img-tag">Précision Millimétrée</span>
-          </div>
-          <div class="bento-body">
-            <h3>Pose de Carrelage & Dallage</h3>
-            <p>Pose minutieuse de tous formats : carreaux 60x120, imitation parquet bois, carreaux de ciment et dallages extérieurs pour terrasses durables.</p>
-            <div class="bento-tags">
-              <span class="bento-tag">Grands Formats</span>
-              <span class="bento-tag">Imitation Parquet</span>
-              <span class="bento-tag">Terrasses Extérieures</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3: Rénovation Intérieure (Col 6) -->
-        <article class="bento-card col-6">
-          <div class="bento-img">
-            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1000&q=85" alt="Rénovation intérieure complète et aménagement" loading="lazy">
-            <span class="bento-img-tag">Rénovation Globale</span>
-          </div>
-          <div class="bento-body">
-            <h3>Rénovation Intérieure Complète</h3>
-            <p>Remise à neuf de vos pièces de vie : plâtrerie, doublage isolant, cloisons modulaires, faux plafonds avec intégration de spots LED et peintures soignées.</p>
-            <div class="bento-tags">
-              <span class="bento-tag">Plâtrerie & Placo</span>
-              <span class="bento-tag">Faux Plafonds</span>
-              <span class="bento-tag">Peintures finitions</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4: Plomberie & Dépannage (Col 6) -->
-        <article class="bento-card col-6">
-          <div class="bento-img">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=85" alt="Plomberie sanitaire et raccordements" loading="lazy">
-            <span class="bento-img-tag">Installation & Réseaux</span>
-          </div>
-          <div class="bento-body">
-            <h3>Plomberie Sanitaire & Raccordements</h3>
-            <p>Modification et création des réseaux d'alimentation et d'évacuation, remplacement de chauffe-eau, pose de WC suspendus et raccordements lave-linge/lave-vaisselle.</p>
-            <div class="bento-tags">
-              <span class="bento-tag">Réseaux d'eau</span>
-              <span class="bento-tag">WC suspendu</span>
-              <span class="bento-tag">Chauffe-eau</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Before/After Section -->
-  <section class="section" id="avant-apres" style="background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 70%);">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">TRANSFORMATION CONCRÈTE</span>
-        <h2>Glissez pour voir la métamorphose.<br><em>De l'ancien au contemporain.</em></h2>
-        <p>Touchez et déplacez le curseur pour comparer l'état initial avec la réalisation terminée.</p>
-      </div>
-
-      <div class="comparison-wrapper">
-        <div class="before-after-box" id="sliderBox">
-          <img class="ba-img ba-after" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1400&q=85" alt="Salle de bain moderne après rénovation">
-          <img class="ba-img ba-before" id="beforeImg" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=85" alt="Salle de bain vétuste avant rénovation">
-          <div class="ba-handle" id="sliderHandle"></div>
-          <div class="ba-button" id="sliderButton">↔</div>
-          <span class="ba-label before">Avant travaux</span>
-          <span class="ba-label after">Après Chopot Services</span>
+    <section class="section wrap" id="estimation" aria-labelledby="estimate-title">
+      <div class="sim-heading"><p class="eyebrow">03 / Le premier repère</p><h2 class="section-title" id="estimate-title">Votre projet commence<br><em>par une idée de budget.</em></h2><p>Choisissez votre chantier, ajustez la surface. Obtenez un premier ordre de grandeur à affiner avec Anthony.</p></div>
+      <div class="simulator">
+        <div class="sim-controls">
+          <fieldset><legend><span class="step">01</span>Quel est votre projet ?</legend><div class="project-options">
+            <label class="project-option"><input type="radio" name="project" value="bathroom" checked><span><svg aria-hidden="true"><use href="#i-bath"/></svg>Salle de bain</span></label>
+            <label class="project-option"><input type="radio" name="project" value="tiling"><span><svg aria-hidden="true"><use href="#i-tile"/></svg>Carrelage</span></label>
+            <label class="project-option"><input type="radio" name="project" value="renovation"><span><svg aria-hidden="true"><use href="#i-house"/></svg>Rénovation complète</span></label>
+          </div></fieldset>
+          <div class="surface-heading"><label for="surface-number" class="field-label"><span class="step">02</span>Quelle surface ?</label><div class="surface-value"><input id="surface-number" type="number" min="2" max="30" step="1" value="8" inputmode="numeric" aria-describedby="surface-help"><span>m²</span></div></div>
+          <label for="surface-range" class="visually-hidden">Ajuster la surface en mètres carrés</label><input class="surface-range" id="surface-range" type="range" min="2" max="30" step="1" value="8">
+          <div class="range-limits" id="surface-help"><span id="surface-min">2 m²</span><span id="surface-max">30 m²</span></div>
+          <p class="sim-explainer" id="sim-explainer">Surface au sol de la salle de bain. Simulation d'un aménagement avec revêtements et équipements sanitaires courants.</p>
         </div>
-        <div class="ba-desc">
-          <span>📍 Chantier récent dans le secteur de Bruyères (88)</span>
-          <span style="color:var(--accent); font-weight:700;">Durée : 8 jours ouvrés</span>
-        </div>
+        <div class="sim-result"><p class="result-label">Votre enveloppe indicative</p><div aria-live="polite" aria-atomic="true"><output class="price" id="estimate-price" for="surface-range surface-number">7 200 – 12 000 €</output><p class="price-context" id="estimate-context">Salle de bain · 8 m² · hors taxes</p></div><p class="result-note">Simulation illustrative, sans valeur de devis. Barème de démonstration, non validé par l'artisan. L'état des supports, les matériaux, les équipements et la TVA applicable seront précisés dans un devis personnalisé.</p><a class="button primary" href="tel:+33607218612"><svg aria-hidden="true"><use href="#i-phone"/></svg>Affiner mon projet avec Anthony</a><p class="result-contact">06 07 21 86 12 · Échange direct</p></div>
       </div>
-    </div>
-  </section>
+      <div class="method"><div><p class="eyebrow">De l'idée aux finitions</p><h3>Commençons<br>par en parler.</h3></div><div class="steps"><div><span class="method-number">01</span><h4>Votre besoin</h4><p>Vos envies, vos contraintes et les pièces que vous souhaitez transformer.</p></div><div><span class="method-number">02</span><h4>Le projet précisé</h4><p>Les surfaces, l'état de l'existant et les matériaux à examiner ensemble.</p></div><div><span class="method-number">03</span><h4>Le chantier défini</h4><p>Un périmètre, un devis et un calendrier à convenir avec Anthony.</p></div></div></div>
+    </section>
 
-  <!-- Interactive Project Simulator -->
-  <section class="section" id="simulateur">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">ESTIMATION EXPRESS EN 30 SECONDES</span>
-        <h2>Cadrez votre budget chantier.<br><em>Sans engagement.</em></h2>
-        <p>Sélectionnez les caractéristiques de votre projet pour obtenir une fourchette indicative.</p>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div class="contact-copy"><p class="eyebrow">04 / Parlons de votre intérieur</p><h2 class="section-title" id="contact-title">Votre prochaine pièce<br><em>préférée commence ici.</em></h2><p>Un projet précis ou une envie à explorer ? Appelez Anthony pour échanger sur votre rénovation.</p><a class="contact-phone" href="tel:+33607218612"><svg aria-hidden="true"><use href="#i-phone"/></svg>06 07 21 86 12</a><address class="contact-address"><strong>CHOPOT SERVICES · Anthony Chopot</strong><br>11 place Henri Thomas<br>88600 Bruyères · Vosges</address><div class="areas" aria-label="Secteur d'intervention"><span>Bruyères</span><span>Épinal</span><span>Gérardmer</span><span>Saint-Dié-des-Vosges</span><span>Et alentours</span></div></div>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xnjebvno" method="POST">
+          <h3>Quelques mots sur votre projet.</h3><p class="form-intro">Prototype privé : ce formulaire est reçu par Novox Studio.<br>Pour joindre Anthony directement, privilégiez l'appel ou le SMS.</p>
+          <input type="hidden" name="_subject" value="CHOPOT SERVICES — Demande depuis le prototype Novox">
+          <input type="hidden" name="origine" value="Prototype privé CHOPOT SERVICES">
+          <input type="hidden" name="simulation" id="form-estimate" value="Salle de bain — 8 m² — 7 200 à 12 000 EUR HT (simulation illustrative)">
+          <div class="honeypot" aria-hidden="true"><label for="company-site">Ne pas remplir ce champ</label><input type="text" id="company-site" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+          <div class="form-grid">
+            <div class="field"><label for="contact-name">Votre nom *</label><input id="contact-name" name="nom" autocomplete="name" placeholder="Prénom et nom" maxlength="120" required></div>
+            <div class="field"><label for="contact-phone">Téléphone *</label><input id="contact-phone" name="telephone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" pattern="[+0-9\(\) .\-]{6,25}" maxlength="25" required></div>
+            <div class="field email"><label for="contact-email">E-mail *</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" maxlength="180" required></div>
+            <div class="field town"><label for="contact-town">Commune du chantier *</label><input id="contact-town" name="commune" autocomplete="address-level2" placeholder="Ex. : Bruyères" maxlength="120" required></div>
+            <div class="field full"><label for="contact-project">Type de projet *</label><select id="contact-project" name="projet" required><option value="Salle de bain">Salle de bain</option><option value="Carrelage">Carrelage &amp; dallage</option><option value="Rénovation complète">Rénovation complète</option><option value="Plomberie sanitaire">Plomberie sanitaire</option><option value="Autre projet">Autre projet</option></select></div>
+            <div class="field full"><label for="contact-message">Votre projet *</label><textarea id="contact-message" name="message" placeholder="La pièce, la surface, vos envies, votre calendrier…" maxlength="5000" required></textarea></div>
+          </div>
+          <label class="consent"><input type="checkbox" name="accord_contact" value="oui" required><span>J'accepte que Novox Studio utilise ces informations pour répondre à ma demande liée à ce prototype. *</span></label>
+          <button class="button primary" id="submit-button" type="submit">Envoyer ma demande à Novox</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+          <p class="form-fallback">Ou par e-mail : <a href="mailto:contact.novox@proton.me?subject=CHOPOT%20SERVICES%20%E2%80%94%20Mon%20projet">contact.novox@proton.me</a></p>
+          <noscript><p class="small">JavaScript est désactivé : le formulaire s'ouvrira sur Formspree après validation. Le simulateur et le comparateur nécessitent JavaScript.</p></noscript>
+        </form>
       </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><div class="footer-brand">CHOPOT SERVICES<span>Rénovation &amp; aménagement · Bruyères, Vosges</span></div><p class="footer-credit">Un site imaginé sur mesure par <strong>NOVOX STUDIO</strong></p><button class="legal-toggle" type="button" aria-expanded="false" aria-controls="legal">À propos de ce prototype</button></div><div class="legal" id="legal" hidden><p><strong>Présentation privée.</strong> Ce fichier présente un concept de site pour CHOPOT SERVICES, Anthony Chopot, 11 place Henri Thomas, 88600 Bruyères, téléphone 06 07 21 86 12. La mention « privé » décrit son usage prévu ; le fichier ne comporte pas de protection par mot de passe. Les moteurs de recherche sont invités à ne pas l'indexer.</p><p><strong>Images et estimations.</strong> Photographies d'inspiration issues d'Unsplash. Aucun chantier, avis client ou label professionnel n'est attribué sur la base de ces images. Les montants du simulateur utilisent un barème de démonstration hors taxes et ne constituent pas un devis de l'entreprise.</p><p><strong>Contact et données.</strong> Les données envoyées sont destinées à Novox Studio pour traiter la demande relative au prototype. L'envoi utilise Formspree. Pour toute question sur vos informations : <a href="mailto:contact.novox@proton.me">contact.novox@proton.me</a>. Le site ne dépose aucun cookie de mesure d'audience. Les photos et polices sont chargées depuis Unsplash et Google Fonts ; ces services reçoivent les données techniques habituelles de connexion.</p><p>Avant publication officielle, les informations légales de l'éditeur et de l'hébergeur ainsi que les modalités de traitement des demandes devront être complétées et validées.</p></div></div></footer>
+  <div class="mobile-actions" aria-label="Contact rapide"><a class="mobile-call" href="tel:+33607218612"><span aria-hidden="true">📞</span><span>Appeler Anthony : <b>06 07 21 86 12</b></span></a><a class="mobile-sms" href="sms:+33607218612" aria-label="Envoyer un SMS à Anthony Chopot"><svg aria-hidden="true"><use href="#i-message"/></svg>SMS express</a></div>
 
-      <div class="simulator-box">
-        <div class="sim-form">
-          <h3>Configurez votre projet</h3>
-          <p>Ajustez les paramètres selon vos envies :</p>
-
-          <div class="sim-field">
-            <label class="sim-label">Type de travaux</label>
-            <div class="sim-options">
-              <button type="button" class="sim-opt-btn active" data-type="sdb" data-rate="1400">Salle de bain</button>
-              <button type="button" class="sim-opt-btn" data-type="carrelage" data-rate="65">Carrelage</button>
-              <button type="button" class="sim-opt-btn" data-type="complet" data-rate="450">Rénov. Globale</button>
-            </div>
-          </div>
-
-          <div class="sim-field">
-            <label class="sim-label">Surface estimée : <strong id="surfaceVal" style="color:var(--accent-light);">8 m²</strong></label>
-            <input type="range" class="sim-range" id="surfaceRange" min="4" max="70" value="8" step="1">
-            <div class="range-value">
-              <span>Petite pièce (4 m²)</span>
-              <span>Grande surface (70 m²)</span>
-            </div>
-          </div>
-
-          <div class="sim-field">
-            <label class="sim-label">Niveau de finition</label>
-            <div class="sim-options">
-              <button type="button" class="sim-opt-btn active" data-finish="1">Standard</button>
-              <button type="button" class="sim-opt-btn" data-finish="1.25">Haut de gamme</button>
-              <button type="button" class="sim-opt-btn" data-finish="1.5">Prestige / Marbre</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="sim-result">
-          <div class="sim-tag">Estimation indicative · TTC</div>
-          <div class="sim-price" id="calcAmount">11 200 €</div>
-          <p class="sim-note">
-            Fourchette indicative comprenant matériaux et main d'œuvre qualifiée. Déplacement sur place à Bruyères et alentours pour devis fixe définitif.
-          </p>
-          <a href="tel:0607218612" class="btn-sim-send">
-            📞 Valider mon projet avec Anthony
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact" style="background: rgba(10, 14, 22, 0.7);">
-    <div class="wrap">
-      <div class="contact-box">
-        <div class="contact-info">
-          <span class="eyebrow">PRENEZ CONTACT</span>
-          <h3>Un projet de rénovation à Bruyères ou dans les Vosges ?</h3>
-          <p>
-            Anthony Chopot se déplace directement chez vous pour évaluer vos surfaces, écouter vos besoins et vous proposer des solutions esthétiques et durables.
-          </p>
-
-          <div class="info-item">
-            <div class="info-icon">📞</div>
-            <div class="info-text">
-              <b>Téléphone Direct</b>
-              <span>06 07 21 86 12 (Appels & SMS 7j/7)</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">📍</div>
-            <div class="info-text">
-              <b>Atelier & Siège</b>
-              <span>11 place Henri Thomas, 88600 Bruyères</span>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-icon">⏱️</div>
-            <div class="info-text">
-              <b>Délai de Réponse</b>
-              <span>Devis gratuit remis sous 48 heures ouvrées</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form">
-          <form action="https://formspree.io/f/contact.novox@proton.me" method="POST" id="devisForm">
-            <div class="form-row">
-              <input type="text" class="form-input" name="nom" placeholder="Votre nom complet" required>
-              <input type="tel" class="form-input" name="telephone" placeholder="Numéro de téléphone" required>
-            </div>
-            <div class="form-row">
-              <input type="text" class="form-input" name="commune" placeholder="Votre ville (ex: Bruyères, Épinal...)" required>
-              <select class="form-select" name="prestation">
-                <option value="Salle de bain">Création / Rénovation Salle de bain</option>
-                <option value="Carrelage sol ou mur">Pose de Carrelage / Faïence</option>
-                <option value="Renovation complete">Rénovation Intérieure Complète</option>
-                <option value="Autre demande">Autre projet de rénovation</option>
-              </select>
-            </div>
-            <textarea class="form-textarea" name="message" placeholder="Décrivez brièvement votre projet (surface approximative, délais souhaités...)" required></textarea>
-            <button type="submit" class="btn-submit">Envoyer ma demande de devis gratuit →</button>
-            <div class="form-note">🔒 Vos coordonnées restent strictement confidentielles. Zéro démarchage.</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>© 2026 <strong>Chopot Services</strong> · Anthony Chopot · SIREN Bruyères (88) · Tous droits réservés.</p>
-    <p style="margin-top:6px; font-size:11px; opacity:0.65;">
-      Design & Architecture créés par <a href="https://novox.studio" target="_blank">Novox Studio</a> · Agence Web Premium Grand Est
-    </p>
-  </div>
-</footer>
-
-<!-- Mobile Floating Bar -->
-<div class="mobile-bar">
-  <a href="tel:0607218612" class="btn-mob-call">
-    📞 Appeler Anthony
-  </a>
-  <a href="sms:0607218612?body=Bonjour%20Anthony%2C%20je%20souhaite%20un%20devis%20pour%20un%20projet%20de%20r%C3%A9novation." class="btn-mob-devis">
-    💬 SMS Devis Rapide
-  </a>
-</div>
-
-<script>
-  // --- Avant / Après Slider Logic ---
-  const box = document.getElementById('sliderBox');
-  const beforeImg = document.getElementById('beforeImg');
-  const handle = document.getElementById('sliderHandle');
-  const button = document.getElementById('sliderButton');
-
-  function updateSlider(percent) {
-    const clamped = Math.max(0, Math.min(100, percent));
-    beforeImg.style.clipPath = `polygon(0 0, ${clamped}% 0, ${clamped}% 100%, 0 100%)`;
-    handle.style.left = `${clamped}%`;
-    button.style.left = `${clamped}%`;
-  }
-
-  function handleMove(e) {
-    const rect = box.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const x = clientX - rect.left;
-    const percent = (x / rect.width) * 100;
-    updateSlider(percent);
-  }
-
-  let isDragging = false;
-  box.addEventListener('mousedown', (e) => { isDragging = true; handleMove(e); });
-  window.addEventListener('mouseup', () => { isDragging = false; });
-  window.addEventListener('mousemove', (e) => { if (isDragging) handleMove(e); });
-
-  box.addEventListener('touchstart', (e) => { isDragging = true; handleMove(e); }, { passive: true });
-  window.addEventListener('touchend', () => { isDragging = false; });
-  window.addEventListener('touchmove', (e) => { if (isDragging) handleMove(e); }, { passive: true });
-
-  // --- Simulateur Logic ---
-  let currentRate = 1400; // SdB par m² moyen clé en main
-  let currentSurface = 8;
-  let currentFinish = 1;
-
-  const surfaceRange = document.getElementById('surfaceRange');
-  const surfaceVal = document.getElementById('surfaceVal');
-  const calcAmount = document.getElementById('calcAmount');
-
-  function calculate() {
-    let total = 0;
-    if (currentRate === 1400) {
-      // Formule SdB réaliste clé en main (base fixe équipement + m²)
-      total = (4500 + (currentSurface * 750)) * currentFinish;
-    } else if (currentRate === 65) {
-      // Carrelage (fourniture + pose)
-      total = (currentSurface * 85) * currentFinish;
-    } else {
-      // Rénovation complète globale
-      total = (currentSurface * 450) * currentFinish;
+  <script>
+    'use strict';
+    // Public Formspree form already used by Novox's contact page.
+    // Confirm its recipient in the Formspree dashboard before official publication.
+    // Prices below are prototype assumptions, NOT validated CHOPOT SERVICES rates.
+    const PROJECTS = {
+      bathroom: { label: 'Salle de bain', min: 2, max: 30, low: 900, high: 1500, description: "Surface au sol de la salle de bain. Simulation d'un aménagement avec revêtements et équipements sanitaires courants." },
+      tiling: { label: 'Carrelage', min: 5, max: 200, low: 65, high: 140, description: 'Surface à carreler. Simulation fourniture et pose courantes, hors reprise lourde du support, dépose complexe et travaux de terrassement.' },
+      renovation: { label: 'Rénovation complète', min: 10, max: 250, low: 450, high: 1000, description: 'Surface intérieure concernée. Simulation de rénovation intérieure hors structure porteuse, toiture, menuiseries extérieures et équipements spécifiques.' }
+    };
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#navigation');
+    function closeMenu() {
+      menu.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Ouvrir le menu');
     }
-    calcAmount.textContent = Math.round(total).toLocaleString('fr-FR') + " €";
-  }
-
-  surfaceRange.addEventListener('input', (e) => {
-    currentSurface = parseInt(e.target.value);
-    surfaceVal.textContent = currentSurface + " m²";
-    calculate();
-  });
-
-  document.querySelectorAll('[data-type]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentRate = parseInt(btn.dataset.rate);
-      calculate();
+    menuButton.addEventListener('click', () => {
+      const open = menu.classList.toggle('is-open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
     });
-  });
-
-  document.querySelectorAll('[data-finish]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-finish]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFinish = parseFloat(btn.dataset.finish);
-      calculate();
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menu.classList.contains('is-open')) { closeMenu(); menuButton.focus(); }
     });
-  });
+    document.addEventListener('click', event => { if (!event.target.closest('.header')) closeMenu(); });
+    matchMedia('(min-width: 641px)').addEventListener('change', closeMenu);
 
-  calculate();
-</script>
+    // Native range gives keyboard and screen-reader support; Pointer Events cover
+    // mouse, touch and pen across the entire photograph, with vertical scrolling retained.
+    const comparison = document.querySelector('#comparison');
+    const comparisonRange = document.querySelector('#comparison-range');
+    function updateComparison(value) {
+      const position = Math.max(0, Math.min(100, Math.round(value)));
+      comparisonRange.value = position;
+      comparison.style.setProperty('--position', position + '%');
+      comparisonRange.setAttribute('aria-valuetext', position + " % de l'ambiance avant");
+    }
+    comparisonRange.addEventListener('input', () => updateComparison(comparisonRange.value));
+    function updateFromPointer(event) {
+      const bounds = comparison.getBoundingClientRect();
+      updateComparison((event.clientX - bounds.left) / bounds.width * 100);
+    }
+    comparison.addEventListener('pointerdown', event => {
+      if (!event.isPrimary || event.button !== 0) return;
+      event.preventDefault();
+      comparisonRange.focus({ preventScroll: true });
+      comparison.setPointerCapture(event.pointerId);
+      updateFromPointer(event);
+    });
+    comparison.addEventListener('pointermove', event => {
+      if (comparison.hasPointerCapture(event.pointerId)) updateFromPointer(event);
+    });
+    ['pointerup', 'pointercancel'].forEach(type => comparison.addEventListener(type, event => {
+      if (comparison.hasPointerCapture(event.pointerId)) comparison.releasePointerCapture(event.pointerId);
+    }));
+
+    const surfaceRange = document.querySelector('#surface-range');
+    const surfaceNumber = document.querySelector('#surface-number');
+    const price = document.querySelector('#estimate-price');
+    const context = document.querySelector('#estimate-context');
+    const formEstimate = document.querySelector('#form-estimate');
+    const projectSelect = document.querySelector('#contact-project');
+    const format = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+    let activeProject = 'bathroom';
+    let formProjectChanged = false;
+    function updateEstimate(rawValue, normalizeNumber = true) {
+      const project = PROJECTS[activeProject];
+      const value = Number(rawValue);
+      if (rawValue === '' || !Number.isFinite(value)) return;
+      const area = Math.max(project.min, Math.min(project.max, Math.round(value)));
+      surfaceRange.value = area;
+      if (normalizeNumber) surfaceNumber.value = area;
+      const amount = format.format(area * project.low) + ' – ' + format.format(area * project.high) + ' €';
+      price.textContent = amount;
+      context.textContent = project.label + ' · ' + area + ' m² · hors taxes';
+      formEstimate.value = project.label + ' — ' + area + ' m² — ' + amount + ' HT (simulation illustrative)';
+    }
+    document.querySelectorAll('input[name="project"]').forEach(input => input.addEventListener('change', () => {
+      activeProject = input.value;
+      const project = PROJECTS[activeProject];
+      [surfaceRange, surfaceNumber].forEach(control => { control.min = project.min; control.max = project.max; });
+      document.querySelector('#surface-min').textContent = project.min + ' m²';
+      document.querySelector('#surface-max').textContent = project.max + ' m²';
+      document.querySelector('#sim-explainer').textContent = project.description;
+      if (!formProjectChanged) projectSelect.value = project.label;
+      updateEstimate(surfaceNumber.value === '' ? project.min : surfaceNumber.value);
+    }));
+    surfaceRange.addEventListener('input', () => updateEstimate(surfaceRange.value));
+    surfaceNumber.addEventListener('input', () => {
+      if (surfaceNumber.validity.valid) updateEstimate(surfaceNumber.value, false);
+    });
+    surfaceNumber.addEventListener('change', () => updateEstimate(surfaceNumber.value === '' ? surfaceRange.value : surfaceNumber.value));
+    projectSelect.addEventListener('change', () => { formProjectChanged = true; });
+    updateEstimate(surfaceRange.value);
+
+    const form = document.querySelector('#contact-form');
+    const submitButton = document.querySelector('#submit-button');
+    const formStatus = document.querySelector('#form-status');
+    let submitting = false;
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (submitting || !form.reportValidity()) return;
+      submitting = true;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+      form.setAttribute('aria-busy', 'true');
+      formStatus.hidden = false;
+      formStatus.classList.remove('error');
+      formStatus.textContent = 'Transmission de votre demande à Novox Studio…';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' }, signal: controller.signal });
+        const data = await response.json().catch(() => null);
+        if (!response.ok || !data || data.ok !== true) throw new Error('Submission not confirmed');
+        formStatus.textContent = 'Merci, votre demande a bien été transmise à Novox Studio. Pour un échange direct avec Anthony, appelez le 06 07 21 86 12.';
+        form.reset();
+        formProjectChanged = false;
+        projectSelect.value = PROJECTS[activeProject].label;
+        updateEstimate(surfaceRange.value);
+      } catch (error) {
+        formStatus.classList.add('error');
+        formStatus.textContent = error.name === 'AbortError'
+          ? "La confirmation tarde à arriver : l'envoi n'a pas pu être confirmé. Vos informations sont conservées dans le formulaire. Vous pouvez contacter Novox par e-mail."
+          : "L'envoi n'a pas pu être confirmé. Vos informations sont conservées : réessayez ou utilisez l'adresse e-mail ci-dessous.";
+      } finally {
+        clearTimeout(timeout);
+        submitting = false;
+        submitButton.disabled = false;
+        submitButton.textContent = 'Envoyer ma demande à Novox';
+        form.removeAttribute('aria-busy');
+      }
+    });
+    const legalToggle = document.querySelector('.legal-toggle');
+    const legal = document.querySelector('#legal');
+    legalToggle.addEventListener('click', () => {
+      legal.hidden = !legal.hidden;
+      legalToggle.setAttribute('aria-expanded', String(!legal.hidden));
+    });
+  </script>
 </body>
 </html>
