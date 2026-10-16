@@ -476,22 +476,6 @@ body {
     overflow: hidden;
 }
 
-.simulator-shell::after {
-    content: "";
-    position: absolute;
-    aspect-ratio: 1;
-    width: 180px;
-    offset-path: rect(0 auto auto 0 round 22px);
-    animation: border-beam-run 10s infinite linear;
-    background: linear-gradient(to right, transparent, var(--accent-cyan), var(--primary), transparent);
-    pointer-events: none;
-}
-
-@keyframes border-beam-run {
-    0% { offset-distance: 0%; }
-    100% { offset-distance: 100%; }
-}
-
 .sim-toolbar {
     background: #0b0c12;
     padding: 0.9rem 1.4rem;
@@ -760,6 +744,7 @@ body {
     opacity: 0;
     cursor: ew-resize;
     z-index: 10;
+    touch-action: pan-y;
 }
 
 .ba-card-mock {
