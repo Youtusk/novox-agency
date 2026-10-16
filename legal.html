@@ -3,64 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales | Novox Studio</title>
+    <title>Mentions Légales & Confidentialité | Novox Studio</title>
+    <meta name="description" content="Mentions légales, conditions générales et politique de confidentialité de l'agence web Novox Studio.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .legal-box {
-            max-width: 800px;
-            margin: 4rem auto 6rem;
-            padding: 3rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-        }
-        .legal-box h1 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; }
-        .legal-box h2 { font-family: var(--font-heading); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.3rem; }
-        .legal-box p { color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; font-size: 0.95rem; }
-    </style>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
             <a href="index.html" class="brand">
                 <img src="favicon.svg" alt="N" class="brand-icon">
-                <span class="brand-logo">NOVOX.</span>
+                <span class="brand-logo">NOVOX<span>.</span></span>
             </a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
             <div class="nav-menu">
-                <a href="index.html" class="btn-primary">Retour à l'accueil</a>
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="offre.html" class="nav-link">L'Offre 1 000€</a>
+                <a href="portfolio.html" class="nav-link">Maquettes Privées</a>
+                <a href="methode.html" class="nav-link">Méthode 48h</a>
+                <a href="secteurs.html" class="nav-link">Secteurs</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="btn-primary">Démarrer un projet</a>
             </div>
         </nav>
     </header>
 
     <main class="main-wrapper">
-        <div class="section">
-            <div class="legal-box">
-                <h1>Mentions Légales & Confidentialité</h1>
-                
-                <h2>1. Éditeur du site</h2>
-                <p>Le site Novox Studio est édité par :<br>
-                <strong>PAQUIN Mauricette</strong><br>
-                <strong>88150</strong><br>
-                Email : contact.novox@proton.me</p>
-
-                <h2>2. Hébergement</h2>
-                <p>Ce site est hébergé par GitHub Pages (GitHub, Inc.), 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
-
-                <h2>3. Données personnelles (RGPD)</h2>
-                <p>Les informations recueillies via le formulaire de contact sont utilisées uniquement dans le but de répondre à votre demande commerciale. Elles ne sont en aucun cas vendues ou cédées à des tiers. Conformément à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification et de suppression de vos données en nous contactant à notre adresse email.</p>
+        <section class="section">
+            <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 3rem;">
+                <div class="section-label">Informations Réglementaires</div>
+                <h1 class="section-title">Mentions Légales & Confidentialité</h1>
+                <p class="section-desc" style="margin: 0 auto;">
+                    Transparence juridique, propriété intellectuelle et respect strict de vos données professionnelles.
+                </p>
             </div>
-        </div>
+
+            <div class="contact-card" style="max-width: 840px; margin: 0 auto;">
+                <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 0.75rem; color: #ffffff;">1. Éditeur du site</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.7;">
+                    Le présent site est édité par <strong>Paquin Thyméo</strong>, exerçant sous le nom commercial <strong>Novox Studio</strong>.<br>
+                    Entrepreneur individuel (Micro-entreprise)<br>
+                    <strong>SIRET : En cours d'immatriculation</strong> (Dossier INPI Guichet Unique)<br>
+                    Régime fiscal : <strong>TVA non applicable, art. 293 B du CGI</strong> (Franchise en base de TVA)<br>
+                    Siège d'activité : Vosges (88), Grand Est, France<br>
+                    Responsable de la publication : <strong>Paquin Thyméo</strong><br>
+                    Contact direct : <a href="mailto:contact.novox@proton.me" style="color: var(--accent-cyan); text-decoration: none;">contact.novox@proton.me</a>
+                </p>
+
+                <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 0.75rem; color: #ffffff;">2. Hébergement</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.7;">
+                    Ce site est hébergé sur l'infrastructure cloud haute disponibilité de <strong>GitHub Pages (GitHub, Inc.)</strong>, 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.
+                </p>
+
+                <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 0.75rem; color: #ffffff;">3. Propriété intellectuelle & Protection des maquettes</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.7;">
+                    L'ensemble des architectures, codes sources, démonstrations vidéo et maquettes sectorielles présentés par <strong>Novox Studio</strong> sont protégés par le droit d'auteur. Toute reproduction, aspiration ou réutilisation non autorisée est strictement interdite. Dès le règlement intégral d'une prestation (acompte de 500 € à la commande et solde de 500 € à la livraison), le client devient propriétaire à 100 % du code source livré pour son entreprise.
+                </p>
+
+                <h2 style="font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 0.75rem; color: #ffffff;">4. Données personnelles (RGPD) & Cookies</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.7;">
+                    Ce site n'utilise aucun traceur publicitaire ni cookie tiers intrusif. Les informations transmises via le formulaire de contact sont utilisées exclusivement par <strong>Novox Studio</strong> afin de répondre à votre demande de projet et ne sont jamais cédées ni revendues à des tiers. Conformément au Règlement Général sur la Protection des Données (RGPD), vous pouvez exercer votre droit d'accès, de rectification ou de suppression en écrivant à <a href="mailto:contact.novox@proton.me" style="color: var(--accent-cyan); text-decoration: none;">contact.novox@proton.me</a>.
+                </p>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">NOVOX.</div>
-            <div class="footer-copy">&copy; 2026 Novox Studio. Tous droits réservés.</div>
+            <div class="footer-brand">NOVOX<span style="color: var(--accent-cyan);">.</span></div>
+            <nav class="footer-nav">
+                <a href="index.html">Accueil</a>
+                <a href="offre.html">L'Offre 1 000€</a>
+                <a href="portfolio.html">Maquettes Privées</a>
+                <a href="methode.html">Méthode 48h</a>
+                <a href="secteurs.html">Secteurs</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="legal.html">Mentions Légales</a>
+            </nav>
+            <div class="footer-copy">&copy; 2026 Novox Studio — SIRET : En cours d'immatriculation.</div>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
 </body>
 </html>

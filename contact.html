@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Démarrer un Projet | Novox Studio</title>
-    <meta name="description" content="Contactez Novox Studio pour lancer la création de votre site vitrine clé en main. Réponse personnalisée et sans engagement.">
+    <title>Démarrer un Projet en 48h | Novox Studio</title>
+    <meta name="description" content="Configurez votre projet de site vitrine avec Novox Studio. Sélectionnez votre maquette sectorielle et recevez votre proposition sous 4 heures.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,13 +16,18 @@
         <nav class="navbar">
             <a href="index.html" class="brand">
                 <img src="favicon.svg" alt="N" class="brand-icon">
-                <span class="brand-logo">NOVOX.</span>
+                <span class="brand-logo">NOVOX<span>.</span></span>
             </a>
-            
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Accueil</a>
                 <a href="offre.html" class="nav-link">L'Offre 1 000€</a>
-                <a href="portfolio.html" class="nav-link">Portfolio & Maquettes</a>
+                <a href="portfolio.html" class="nav-link">Maquettes Privées</a>
+                <a href="methode.html" class="nav-link">Méthode 48h</a>
+                <a href="secteurs.html" class="nav-link">Secteurs</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="contact.html" class="btn-primary active">Démarrer un projet</a>
             </div>
         </nav>
@@ -34,10 +37,10 @@
         <section class="section">
             <div class="contact-container">
                 <div class="section-header" style="text-align: center; margin-bottom: 2.5rem;">
-                    <div class="section-label">Contact Direct</div>
-                    <h1 class="section-title">Parlons de votre futur site</h1>
+                    <div class="section-label">Lancement Express 48h</div>
+                    <h1 class="section-title">Configurez votre futur site</h1>
                     <p class="section-desc" style="margin: 0 auto;">
-                        Décrivez-nous brièvement votre activité et vos objectifs. Nous étudions votre demande et revenons vers vous avec une proposition claire.
+                        Indiquez-nous votre métier et la maquette qui vous correspond. Nous vous envoyons un aperçu privé consultable sur smartphone, sans aucun engagement.
                     </p>
                 </div>
 
@@ -45,35 +48,87 @@
                     <form id="contact-form" action="https://formspree.io/f/xnjebvno" method="POST">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="form-name">Votre nom ou entreprise</label>
-                                <input type="text" id="form-name" name="nom" placeholder="Ex: Alexandre Martin" required autocomplete="name">
+                                <label for="form-name">Votre nom ou nom d'entreprise</label>
+                                <input type="text" id="form-name" name="nom" placeholder="Ex: Entreprise Martin Couverture" required autocomplete="name">
                             </div>
                             <div class="form-group">
-                                <label for="form-email">Votre email professionnel</label>
-                                <input type="email" id="form-email" name="email" placeholder="alexandre@entreprise.fr" required autocomplete="email">
+                                <label for="form-email">Votre e-mail ou téléphone (SMS)</label>
+                                <input type="text" id="form-email" name="contact" placeholder="Ex: 06 12 34 56 78 ou contact@entreprise.fr" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-activity">Votre métier & ville d'intervention</label>
+                                <input type="text" id="form-activity" name="activite" placeholder="Ex: Couvreur-Zingueur à Épinal (88)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-model">Architecture privée souhaitée</label>
+                                <select id="form-model" name="modele">
+                                    <option value="Conseil sur-mesure Novox">Me conseiller la meilleure maquette</option>
+                                    <option value="Couverture Premium / Toiture & BTP">1. Couverture, Toiture & BTP</option>
+                                    <option value="Menuiserie & Agencement / Créations Bois">2. Menuiserie, Bois & Agencement</option>
+                                    <option value="AURA Piscines & Paysage">3. AURA — Piscines Miroir & Extérieurs</option>
+                                    <option value="Solaire & PAC / Autoconsommation RGE">4. Solaire Photovoltaïque & PAC RGE</option>
+                                    <option value="Architecture Luxe / Cabinet Maîtrise d'Œuvre">5. Cabinet d'Architecture & Prestige</option>
+                                    <option value="Terrassement & TP / VRD">6. Terrassement, TP & Assainissement</option>
+                                    <option value="Électricien / Electricien & Domotique">7. Électricité Générale & Domotique</option>
+                                    <option value="RideZone Ultra — Mobilité Électrique">8. RideZone Ultra — E-Mobility & Atelier</option>
+                                    <option value="Rénovation & Multi-Services">9. Rénovation Globale & Multi-Services</option>
+                                    <option value="Plomberie & Salle de Bain">10. Plomberie, Chauffage & Salle de Bain</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-activity">Votre domaine d'activité</label>
-                            <input type="text" id="form-activity" name="activite" placeholder="Ex: Artisanat, Conseil, Automobile, Restauration..." required>
+                            <label>Vos priorités sur le site (optionnel)</label>
+                            <div class="chip-selector">
+                                <label class="chip-option">
+                                    <input type="checkbox" name="priorites" value="Appel 1-Clic Mobile" checked>
+                                    <span>Bouton d'appel 1-clic sur mobile</span>
+                                </label>
+                                <label class="chip-option">
+                                    <input type="checkbox" name="priorites" value="Galerie Avant/Après" checked>
+                                    <span>Galerie chantiers Avant / Après</span>
+                                </label>
+                                <label class="chip-option">
+                                    <input type="checkbox" name="priorites" value="Labels Décennale / RGE">
+                                    <span>Mise en avant Décennale / RGE</span>
+                                </label>
+                                <label class="chip-option">
+                                    <input type="checkbox" name="priorites" value="Formulaire Devis Express">
+                                    <span>Demande de devis rapide</span>
+                                </label>
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="form-message">Votre projet en quelques mots</label>
-                            <textarea id="form-message" name="message" rows="4" placeholder="Précisez si vous avez déjà un logo, un modèle préféré (ex: RideZone, Architecte Luxe) ou un délai souhaité..." required></textarea>
+                            <label for="form-message">Précisions sur votre activité</label>
+                            <textarea id="form-message" name="message" rows="4" placeholder="Précisez vos prestations principales, votre rayon d'intervention ou si vous possédez déjà quelques photos de chantiers..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%; padding: 0.95rem; font-size: 1rem;">
-                            <span>Envoyer ma demande de projet</span>
+                        <button type="submit" class="btn-shimmer" id="submit-btn" style="width: 100%; padding: 1rem; font-size: 1rem;">
+                            <span>Demander mon aperçu privé & réserver mon créneau</span>
+                            <i data-lucide="arrow-right"></i>
                         </button>
 
                         <div id="form-feedback" class="form-alert" role="alert"></div>
                     </form>
                 </div>
 
-                <div style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-size: 0.875rem;">
-                    <p>Pour un échange direct : <strong>contact.novox@proton.me</strong></p>
+                <div class="bento-grid" style="margin-top: 2rem; grid-template-columns: repeat(3, 1fr);">
+                    <div class="bento-card" style="padding: 1.35rem;">
+                        <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 0.25rem;">100% Asynchrone</div>
+                        <p style="font-size: 0.84rem; color: var(--text-secondary);">Zéro démarchage téléphonique intrusif : tout se valide simplement par lien privé sur votre mobile.</p>
+                    </div>
+                    <div class="bento-card" style="padding: 1.35rem;">
+                        <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Paiement 50/50</div>
+                        <p style="font-size: 0.84rem; color: var(--text-secondary);">500 € au démarrage, 500 € uniquement après validation finale de votre site en ligne.</p>
+                    </div>
+                    <div class="bento-card" style="padding: 1.35rem;">
+                        <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Contact Direct</div>
+                        <p style="font-size: 0.84rem; color: var(--text-secondary);">Écrivez-nous à tout moment sur <a href="mailto:contact.novox@proton.me" style="color: var(--accent-cyan); text-decoration: none;">contact.novox@proton.me</a></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -81,15 +136,18 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">NOVOX.</div>
+            <div class="footer-brand">NOVOX<span style="color: var(--accent-cyan);">.</span></div>
             <nav class="footer-nav">
                 <a href="index.html">Accueil</a>
-                <a href="offre.html">Offre 1 000€</a>
-                <a href="portfolio.html">Portfolio & Maquettes</a>
-                <a href="contact.html">Démarrer un projet</a>
+                <a href="offre.html">L'Offre 1 000€</a>
+                <a href="portfolio.html">Maquettes Privées</a>
+                <a href="methode.html">Méthode 48h</a>
+                <a href="secteurs.html">Secteurs</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
                 <a href="legal.html">Mentions Légales</a>
             </nav>
-            <div class="footer-copy">&copy; 2026 Novox Studio. Tous droits réservés.</div>
+            <div class="footer-copy">&copy; 2026 Novox Studio — SIRET : En cours d'immatriculation.</div>
         </div>
     </footer>
 

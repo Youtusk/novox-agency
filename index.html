@@ -3,646 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novox Studio — Site en Développement</title>
-    <meta name="description" content="Novox Studio : Création de sites vitrines d'exception. Plateforme actuellement en cours de développement.">
-    <meta name="robots" content="noindex, nofollow">
-
-    <!-- Favicon -->
+    <title>Novox Studio | Sites Vitrines Haute Performance Livrés en 48h</title>
+    <meta name="description" content="Novox Studio conçoit des sites vitrines d'exception en code natif pour artisans et professionnels exigeants. Tarif unique 1 000€, livraison 48h, 0€/mois d'abonnement.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
-
-    <!-- Typographies Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Styles CSS Autonomes & Intégrés (Garantit 100% d'affichage même si cache navigateur actif) -->
-    <style>
-        :root {
-            --bg-base: #07070a;
-            --bg-surface: #0e0e14;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --primary: #3b82f6;
-            --accent-cyan: #00f0ff;
-            --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            --transition: 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            min-height: 100vh;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .dev-wrapper {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            background: radial-gradient(circle at 50% 0%, #0d1424 0%, #07070a 65%);
-        }
-
-        /* Retro Grid 3D (Magic UI) */
-        .retro-grid {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            perspective: 300px;
-            opacity: 0.25;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .retro-grid-plane {
-            position: absolute;
-            inset: -60% -20% 0 -20%;
-            background-size: 50px 50px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 0),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 0);
-            transform: rotateX(68deg);
-            transform-origin: top;
-            animation: grid-movement 14s linear infinite;
-        }
-
-        @keyframes grid-movement {
-            0% { transform: rotateX(68deg) translateY(0); }
-            100% { transform: rotateX(68deg) translateY(50px); }
-        }
-
-        /* Halos Lumineux Ambiance */
-        .glow-orb-cyan {
-            position: absolute;
-            top: 15%;
-            left: 20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
-            filter: blur(90px);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .glow-orb-blue {
-            position: absolute;
-            bottom: 20%;
-            right: 18%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.14) 0%, transparent 70%);
-            filter: blur(100px);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Header Fixe Épuré */
-        .header {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(7, 7, 10, 0.8);
-            backdrop-filter: blur(16px);
-        }
-
-        .navbar {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            text-decoration: none;
-        }
-
-        .brand-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: block;
-        }
-
-        .brand-logo {
-            font-family: var(--font-heading);
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #ffffff;
-        }
-
-        .brand-logo span {
-            color: var(--primary);
-        }
-
-        .header-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            background: rgba(59, 130, 246, 0.12);
-            border: 1px solid rgba(59, 130, 246, 0.35);
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.76rem;
-            font-weight: 700;
-            color: #60a5fa;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
-            animation: pulse-glow 1.8s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.4); opacity: 0.45; }
-        }
-
-        /* Conteneur Central */
-        .main-container {
-            position: relative;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 3.5rem 1.5rem 4rem;
-            max-width: 920px;
-            margin: 0 auto;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* Carte Principale Glassmorphism & Border Beam */
-        .dev-card {
-            position: relative;
-            background: rgba(14, 14, 20, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border-radius: 24px;
-            padding: 3.5rem 3rem;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-            width: 100%;
-            overflow: hidden;
-        }
-
-        /* Border Beam (Magic UI) */
-        @keyframes border-beam-run {
-            0% { offset-distance: 0%; }
-            100% { offset-distance: 100%; }
-        }
-
-        .dev-card::after {
-            content: "";
-            position: absolute;
-            aspect-ratio: 1;
-            width: 160px;
-            offset-path: rect(0 auto auto 0 round 24px);
-            animation: border-beam-run 9s infinite linear;
-            background: linear-gradient(to right, transparent, #00f0ff, #3b82f6, transparent);
-            pointer-events: none;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(14, 18, 30, 0.95);
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            padding: 0.45rem 1.25rem;
-            border-radius: 9999px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #60a5fa;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: relative;
-            z-index: 5;
-        }
-
-        /* H1 Principal */
-        .dev-title {
-            font-family: var(--font-heading);
-            font-size: clamp(2.3rem, 5.5vw, 4.2rem);
-            font-weight: 800;
-            line-height: 1.12;
-            letter-spacing: -0.04em;
-            color: #ffffff;
-            margin-bottom: 1.25rem;
-        }
-
-        .gradient-text {
-            font-style: normal;
-            background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 50%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .dev-desc {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            color: var(--text-secondary);
-            max-width: 660px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.75;
-        }
-
-        /* HUD Progression */
-        .hud-pipeline {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.5rem 1.75rem;
-            margin-bottom: 2.5rem;
-            text-align: left;
-        }
-
-        .hud-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            font-family: var(--font-heading);
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            color: #cbd5e1;
-        }
-
-        .hud-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 9999px;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 1.25rem;
-        }
-
-        .hud-fill {
-            width: 94%;
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6 0%, #00f0ff 70%, #10b981 100%);
-            border-radius: 9999px;
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
-            position: relative;
-        }
-
-        .hud-fill::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-            animation: scan-beam 2.2s infinite;
-        }
-
-        @keyframes scan-beam {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .hud-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .hud-step {
-            font-size: 0.82rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-        }
-
-        .hud-step.done {
-            color: #34d399;
-        }
-
-        .hud-step.active {
-            color: #00f0ff;
-            font-weight: 600;
-        }
-
-        /* Shimmer Button (Magic UI) */
-        @keyframes shimmer-move {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .shimmer-btn {
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.65rem;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid rgba(0, 240, 255, 0.45);
-            border-radius: 9999px;
-            padding: 1rem 2.5rem;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1rem;
-            color: #ffffff;
-            text-decoration: none;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .shimmer-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            animation: shimmer-move 3.2s infinite;
-        }
-
-        .shimmer-btn:hover {
-            transform: translateY(-2px);
-            border-color: #00f0ff;
-            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45);
-            color: #ffffff;
-        }
-
-        /* Grille 3 Piliers Clés */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-top: 2rem;
-            width: 100%;
-            text-align: left;
-        }
-
-        .pillar-card {
-            background: rgba(14, 14, 20, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 16px;
-            padding: 1.5rem;
-            backdrop-filter: blur(16px);
-            transition: var(--transition);
-        }
-
-        .pillar-card:hover {
-            border-color: rgba(255, 255, 255, 0.18);
-            background: rgba(14, 14, 20, 0.8);
-            transform: translateY(-2px);
-        }
-
-        .pillar-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.9rem;
-            background: rgba(59, 130, 246, 0.12);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.25);
-        }
-
-        .pillar-title {
-            font-family: var(--font-heading);
-            font-size: 1.02rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.4rem;
-        }
-
-        .pillar-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.55;
-        }
-
-        /* Footer */
-        .footer {
-            position: relative;
-            z-index: 10;
-            padding: 2rem 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(7, 7, 10, 0.9);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-brand {
-            font-family: var(--font-heading);
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .footer-brand span {
-            color: var(--primary);
-        }
-
-        .footer-mail {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-mail a {
-            color: #60a5fa;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-mail a:hover {
-            color: #93c5fd;
-            text-decoration: underline;
-        }
-
-        .footer-copy {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 820px) {
-            .dev-card {
-                padding: 2.5rem 1.75rem;
-            }
-            .hud-steps {
-                grid-template-columns: 1fr;
-                gap: 0.6rem;
-            }
-            .pillars-grid {
-                grid-template-columns: 1fr;
-            }
-            .header-pill {
-                display: none;
-            }
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="dev-wrapper">
-        <!-- Magic UI Retro Grid 3D -->
-        <div class="retro-grid" aria-hidden="true">
-            <div class="retro-grid-plane"></div>
-        </div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="brand">
+                <img src="favicon.svg" alt="N" class="brand-icon">
+                <span class="brand-logo">NOVOX<span>.</span></span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Accueil</a>
+                <a href="offre.html" class="nav-link">L'Offre 1 000€</a>
+                <a href="portfolio.html" class="nav-link">Maquettes Privées</a>
+                <a href="methode.html" class="nav-link">Méthode 48h</a>
+                <a href="secteurs.html" class="nav-link">Secteurs</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="btn-primary">Démarrer un projet</a>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Halos Lumineux Décoratifs -->
-        <div class="glow-orb-cyan" aria-hidden="true"></div>
-        <div class="glow-orb-blue" aria-hidden="true"></div>
+    <main class="main-wrapper">
+        <!-- HERO + SIMULATEUR INTERACTIF EN DIRECT -->
+        <section class="section hero-wrapper">
+            <div class="retro-grid" aria-hidden="true">
+                <div class="retro-grid-plane"></div>
+            </div>
 
-        <!-- Header / Navigation Minimaliste (Zéro lien sortant vers le site) -->
-        <header class="header">
-            <nav class="navbar">
-                <div class="brand">
-                    <img src="favicon.svg" alt="N" class="brand-icon">
-                    <span class="brand-logo">NOVOX<span>.</span></span>
+            <div class="hero-content">
+                <div class="hero-pill">
+                    <span class="pulse-dot"></span>
+                    <span>Studio Digital Haute Performance • Vosges & France Entière</span>
                 </div>
-                <div class="header-pill">
-                    <span class="pulse-dot"></span> Site en Développement
-                </div>
-            </nav>
-        </header>
 
-        <!-- Contenu Central : Carte Prestige en Développement -->
-        <main class="main-container">
-            <div class="dev-card">
-                <!-- Statut Supérieur -->
-                <div class="status-badge">
-                    <span class="pulse-dot"></span> Accès Restreint · Version Privée
-                </div>
-
-                <!-- H1 Demandé Spécifiquement -->
-                <h1 class="dev-title">
-                    Site Actuellement<br><span class="gradient-text">en Développement</span>
+                <h1 class="hero-title">
+                    Des sites vitrines qui imposent <span class="gradient-text">votre autorité</span> dès la première seconde.
                 </h1>
 
-                <!-- Sous-titre & Pitch Novox Studio (Zéro mention d'IA) -->
-                <p class="dev-desc">
-                    Nous calibrons actuellement notre nouvelle génération de vitrines digitales haute performance. Code natif ultra-léger, esthétique sombre d’exception et livraison clé en main en 48 heures chrono. La plateforme sera accessible publiquement très prochainement.
+                <p class="hero-subtitle">
+                    Fini les sites WordPress lents, les devis à 4 000 € et les abonnements mensuels sans fin. Nous développons votre vitrine sur-mesure en <strong>code natif pur</strong>, livrée clé en main en <strong>48 heures chrono pour 1 000 € net</strong>.
                 </p>
 
-                <!-- HUD Pipeline de Progression Dynamique -->
-                <div class="hud-pipeline">
-                    <div class="hud-head">
-                        <span><strong style="color: #ffffff;">Avancement du Studio</strong> · Version 2.4</span>
-                        <span style="color: #00f0ff; font-weight: 700;">94%</span>
-                    </div>
-                    <div class="hud-bar">
-                        <div class="hud-fill"></div>
-                    </div>
-                    <div class="hud-steps">
-                        <div class="hud-step done">
-                            <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> Architecture Code Pur
-                        </div>
-                        <div class="hud-step active">
-                            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i> Vitrines Signatures
-                        </div>
-                        <div class="hud-step">
-                            <i data-lucide="clock" style="width: 16px; height: 16px;"></i> Lancement Imminent
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Unique : Prise de contact par email -->
-                <div>
-                    <a href="mailto:contact.novox@proton.me" class="shimmer-btn">
-                        <i data-lucide="mail"></i> Contacter l'Agence en Privé
+                <div class="hero-actions">
+                    <a href="offre.html" class="btn-shimmer">
+                        <span>Découvrir le Menu Unique 1 000€</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="portfolio.html" class="btn-secondary">
+                        <i data-lucide="lock"></i>
+                        <span>Explorer nos 10 maquettes privées</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Grille Bento 3 Piliers (100% Pro, Zéro mention d'IA) -->
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon">
-                        <i data-lucide="zap"></i>
+            <!-- SIMULATEUR STUDIO INTERACTIF (4 SECTEURS + BASCULE PC/MOBILE) -->
+            <div class="simulator-shell" id="studio-simulator">
+                <div class="sim-toolbar">
+                    <div class="sim-tabs" role="tablist" aria-label="Choisir un secteur à simuler">
+                        <button type="button" class="sim-tab active" data-sim-preset="btp">
+                            <i data-lucide="hammer" style="width:14px;height:14px;"></i> Toiture & BTP
+                        </button>
+                        <button type="button" class="sim-tab" data-sim-preset="piscine">
+                            <i data-lucide="waves" style="width:14px;height:14px;"></i> Piscines & Spas
+                        </button>
+                        <button type="button" class="sim-tab" data-sim-preset="menuiserie">
+                            <i data-lucide="ruler" style="width:14px;height:14px;"></i> Menuiserie & Bois
+                        </button>
+                        <button type="button" class="sim-tab" data-sim-preset="solaire">
+                            <i data-lucide="sun" style="width:14px;height:14px;"></i> Solaire & Élec
+                        </button>
                     </div>
-                    <div class="pillar-title">Formule Unique 1 000€</div>
-                    <div class="pillar-desc">
-                        Livraison en 48h chrono. 0€ d'abonnement mensuel et zéro CMS lourd. L'efficacité radicale pour les pros.
+
+                    <div class="sim-device-toggle" aria-label="Format d'écran">
+                        <button type="button" class="sim-device-btn active" data-sim-device="desktop">
+                            <i data-lucide="monitor" style="width:13px;height:13px;"></i> Vue PC
+                        </button>
+                        <button type="button" class="sim-device-btn" data-sim-device="mobile">
+                            <i data-lucide="smartphone" style="width:13px;height:13px;"></i> Vue Mobile
+                        </button>
                     </div>
                 </div>
 
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="background: rgba(0, 240, 255, 0.12); color: #00f0ff; border-color: rgba(0, 240, 255, 0.25);">
-                        <i data-lucide="palette"></i>
-                    </div>
-                    <div class="pillar-title">Design Signature Sombre</div>
-                    <div class="pillar-desc">
-                        Direction artistique haut de gamme, typographies de caractère et animations cinématiques sur-mesure.
-                    </div>
-                </div>
+                <div class="sim-stage" id="sim-stage">
+                    <div class="sim-viewport" id="sim-viewport">
+                        <div>
+                            <div class="sim-badge" id="sim-badge">Artisanat BTP & Couverture • Vosges & Grand Est</div>
+                            <h2 class="sim-title" id="sim-title">Toiture, Zinguerie & Rénovation Garantie 10 Ans</h2>
+                            <p class="sim-desc" id="sim-desc">
+                                Intervention rapide sous 24h, diagnostic d'étanchéité gratuit et galerie de chantiers vérifiés avant/après.
+                            </p>
+                            <div class="sim-features" id="sim-features">
+                                <span class="mini-badge">Garantie Décennale</span>
+                                <span class="mini-badge">Urgence Fuite 7j/7</span>
+                                <span class="mini-badge">Devis Photo Express</span>
+                                <span class="mini-badge">Avis Clients 4.9/5</span>
+                            </div>
+                            <a href="contact.html?modele=Toiture%20%26%20BTP" class="sim-cta-demo" id="sim-cta">
+                                Appeler l'Artisan en 1 Clic
+                            </a>
+                        </div>
 
-                <div class="pillar-card">
-                    <div class="pillar-icon" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.25);">
-                        <i data-lucide="shield-check"></i>
-                    </div>
-                    <div class="pillar-title">Sécurité & Cloud Haute Dispo</div>
-                    <div class="pillar-desc">
-                        Protection intégrée, certificat SSL et hébergement cloud haute disponibilité inclus à vie.
+                        <div class="sim-metrics-panel">
+                            <div style="font-family: var(--font-heading); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
+                                Télémétrie Temps Réel Novox
+                            </div>
+                            <div class="sim-kpi-row">
+                                <span class="sim-kpi-label">Chargement Mobile</span>
+                                <span class="sim-kpi-val" id="sim-speed">0.18s</span>
+                            </div>
+                            <div class="sim-kpi-row">
+                                <span class="sim-kpi-label">Score Google PageSpeed</span>
+                                <span class="sim-kpi-val" id="sim-score" style="color: var(--accent-cyan);">100 / 100</span>
+                            </div>
+                            <div class="sim-kpi-row">
+                                <span class="sim-kpi-label">Impact Commercial</span>
+                                <span class="sim-kpi-val" id="sim-conv" style="color: #ffffff; font-size: 1.15rem;">+310% d'appels</span>
+                            </div>
+                            <div style="font-size: 0.78rem; color: var(--text-muted);">
+                                Clique sur les métiers ci-dessus ou bascule en <strong>Vue Mobile</strong> pour tester l'adaptabilité.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
 
-        <!-- Footer Sobre & Épuré -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-brand">NOVOX<span>.</span></div>
-                <div class="footer-mail">
-                    Contact direct : <a href="mailto:contact.novox@proton.me">contact.novox@proton.me</a>
-                </div>
-                <div class="footer-copy">&copy; 2026 Novox Studio. Tous droits réservés.</div>
+        <!-- BANDEAU INFINITE MARQUEE -->
+        <div class="marquee-bar" aria-label="Points forts Novox Studio">
+            <div class="marquee-track">
+                <span class="marquee-item"><i data-lucide="zap"></i> Livraison Clé en Main en 48 Heures</span>
+                <span class="marquee-item"><i data-lucide="shield-check"></i> Tarif Unique 1 000 € • 0 €/mois d'Abonnement</span>
+                <span class="marquee-item"><i data-lucide="code-2"></i> Code Natif Pur • Zéro WordPress Lent</span>
+                <span class="marquee-item"><i data-lucide="smartphone"></i> Bouton d'Appel Direct 1-Clic sur Smartphone</span>
+                <span class="marquee-item"><i data-lucide="lock"></i> 10 Maquettes Sectorielles Privées & Protégées</span>
+                <span class="marquee-item"><i data-lucide="award"></i> Propriétaire à 100% de Votre Code Source</span>
+                <!-- Duplication pour défilement infini fluide -->
+                <span class="marquee-item"><i data-lucide="zap"></i> Livraison Clé en Main en 48 Heures</span>
+                <span class="marquee-item"><i data-lucide="shield-check"></i> Tarif Unique 1 000 € • 0 €/mois d'Abonnement</span>
+                <span class="marquee-item"><i data-lucide="code-2"></i> Code Natif Pur • Zéro WordPress Lent</span>
+                <span class="marquee-item"><i data-lucide="smartphone"></i> Bouton d'Appel Direct 1-Clic sur Smartphone</span>
+                <span class="marquee-item"><i data-lucide="lock"></i> 10 Maquettes Sectorielles Privées & Protégées</span>
+                <span class="marquee-item"><i data-lucide="award"></i> Propriétaire à 100% de Votre Code Source</span>
             </div>
-        </footer>
-    </div>
+        </div>
 
-    <!-- Script Lucide & Sécurités Novox -->
+        <!-- COMPARATEUR INTERACTIF AVANT / APRÈS NOVOX -->
+        <section class="section">
+            <div class="section-header" style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
+                <div class="section-label">Comparateur Interactif</div>
+                <h2 class="section-title">Glissez le curseur : Avant vs Après Novox</h2>
+                <p class="section-desc" style="margin: 0 auto;">
+                    Découvrez pourquoi un client qui cherche un artisan sur Google choisit systématiquement l'entreprise équipée d'une vitrine claire et rapide.
+                </p>
+            </div>
+
+            <div class="ba-comparator">
+                <div class="ba-grid">
+                    <!-- Couche AVANT -->
+                    <div class="ba-layer ba-before">
+                        <div>
+                            <span class="mini-badge" style="border-color: rgba(239,68,68,0.4); color: #f87171;">AVANT : Sans Site ou Site Classique Daté</span>
+                            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.9rem; color: #e2e8f0;">
+                                « Simple fiche annuaire ou site lent sur mobile »
+                            </h3>
+                        </div>
+                        <div class="ba-card-mock">
+                            <ul class="summary-list">
+                                <li style="color: #fca5a5;"><i data-lucide="x-circle" style="color: #ef4444;"></i> <span>Aucune galerie de chantiers réels pour rassurer</span></li>
+                                <li style="color: #fca5a5;"><i data-lucide="x-circle" style="color: #ef4444;"></i> <span>Chargement lent (4 à 6 secondes) : 60% des visiteurs quittent</span></li>
+                                <li style="color: #fca5a5;"><i data-lucide="x-circle" style="color: #ef4444;"></i> <span>Numéro difficile à trouver, formulaire cassé</span></li>
+                                <li style="color: #fca5a5;"><i data-lucide="x-circle" style="color: #ef4444;"></i> <span>Les beaux devis partent chez le concurrent mieux présenté</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Couche APRÈS -->
+                    <div class="ba-layer ba-after">
+                        <div style="text-align: right;">
+                            <span class="mini-badge" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">APRÈS : Vitrine Signature Novox Studio</span>
+                            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 0.9rem; color: #ffffff;">
+                                « Autorité immédiate & Appels directs qualifiés »
+                            </h3>
+                        </div>
+                        <div class="ba-card-mock">
+                            <ul class="summary-list">
+                                <li style="color: #f8fafc;"><i data-lucide="check-circle-2" style="color: var(--accent-emerald);"></i> <span>Design sombre haut de gamme qui justifie vos tarifs</span></li>
+                                <li style="color: #f8fafc;"><i data-lucide="check-circle-2" style="color: var(--accent-emerald);"></i> <span>Ouverture instantanée en 0.2s sur tous les smartphones</span></li>
+                                <li style="color: #f8fafc;"><i data-lucide="check-circle-2" style="color: var(--accent-emerald);"></i> <span>Photos Avant/Après + Garanties Décennale & RGE visibles</span></li>
+                                <li style="color: #f8fafc;"><i data-lucide="check-circle-2" style="color: var(--accent-emerald);"></i> <span>Bouton d'appel 1-clic et demande de devis en 30 secondes</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ba-divider">
+                        <div class="ba-handle">&harr;</div>
+                    </div>
+                    <input type="range" class="ba-range" min="8" max="92" value="50" aria-label="Comparer avant et après Novox Studio">
+                </div>
+            </div>
+        </section>
+
+        <!-- BENTO GRID SPOTLIGHT -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="section-header">
+                <div class="section-label">Ingénierie & Rentabilité</div>
+                <h2 class="section-title">Pourquoi les professionnels passent chez Novox</h2>
+                <p class="section-desc">
+                    Nous avons éliminé toutes les lourdeurs des agences traditionnelles pour livrer un actif digital rapide, durable et rentable dès le premier chantier signé.
+                </p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card bento-col-2">
+                    <div class="bento-icon"><i data-lucide="cpu"></i></div>
+                    <h3 class="bento-card-title">Code Natif Pur : Zéro WordPress, Zéro Faille</h3>
+                    <p class="bento-text">
+                        Les sites WordPress ou Wix accumulent des dizaines d'extensions qui ralentissent l'affichage et tombent en panne. Chez Novox Studio, chaque page est écrite en HTML5 et CSS3 natif : votre site est inviolable, ne nécessite aucune mise à jour payante et s'affiche instantanément.
+                    </p>
+                </div>
+
+                <div class="bento-card">
+                    <div class="metric-number">100<span>/100</span></div>
+                    <h3 class="bento-card-title">Vitesse Chirurgicale</h3>
+                    <p class="bento-text">
+                        Performances maximales sur Google PageSpeed pour retenir 100 % des clients sur smartphone.
+                    </p>
+                </div>
+
+                <div class="bento-card">
+                    <div class="metric-number">0 €<span>/mois</span></div>
+                    <h3 class="bento-card-title">Zéro Abonnement</h3>
+                    <p class="bento-text">
+                        Hébergement cloud haute disponibilité et certificat SSL inclus à vie. Vous ne payez jamais de loyer mensuel.
+                    </p>
+                </div>
+
+                <div class="bento-card bento-col-2">
+                    <div class="bento-icon"><i data-lucide="clock"></i></div>
+                    <h3 class="bento-card-title">Livraison en 48 Heures • Paiement 50/50 Sécurisé</h3>
+                    <p class="bento-text">
+                        500 € d'acompte au lancement, un lien privé de validation sous 24h, et 500 € uniquement à la livraison finale une fois votre site en ligne. En un seul chantier signé grâce à votre vitrine, votre investissement est intégralement remboursé.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- APERÇU DES MAQUETTES PRIVÉES -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <div class="section-label">Catalogue Confidentiel</div>
+                    <h2 class="section-title">Nos Maquettes Sectorielles Privées</h2>
+                    <p class="section-desc">
+                        Nos maquettes complètes sont réservées à nos clients et protégées contre la copie. Voici 4 aperçus vidéo issus de notre collection de 10 architectures métiers.
+                    </p>
+                </div>
+                <a href="portfolio.html" class="btn-secondary">Voir les 10 maquettes privées <i data-lucide="arrow-right"></i></a>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <div class="video-preview-wrapper">
+                            <span class="video-secure-badge"><span class="live-dot"></span> Démo Vidéo Protégée</span>
+                            <span class="private-lock-pill"><i data-lucide="lock" style="width:12px;height:12px;"></i> Maquette Privée</span>
+                            <video class="preview-video" autoplay loop muted playsinline poster="assets/couverture-thumb.jpg" preload="metadata">
+                                <source src="assets/couverture-loop.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-badge" style="color: #f59e0b;">BTP, Toiture & Rénovation</span>
+                        <h3 class="portfolio-title">Couverture & Zinguerie Premium</h3>
+                        <p class="portfolio-desc">
+                            Conçu pour déclencher des appels immédiats : mise en avant de la garantie décennale, réalisations avant/après et demande de devis rapide.
+                        </p>
+                        <div class="portfolio-actions-row">
+                            <a href="portfolio.html" class="portfolio-action">Inspecter la maquette <i data-lucide="arrow-right"></i></a>
+                            <a href="contact.html?modele=Couverture%20Premium" class="mini-badge" style="text-decoration:none; color:#fff;">Demander un accès</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <div class="video-preview-wrapper">
+                            <span class="video-secure-badge"><span class="live-dot"></span> Démo Vidéo Protégée</span>
+                            <span class="private-lock-pill"><i data-lucide="lock" style="width:12px;height:12px;"></i> Maquette Privée</span>
+                            <video class="preview-video" autoplay loop muted playsinline poster="assets/piscine-thumb.jpg" preload="metadata">
+                                <source src="assets/piscine-loop.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-badge" style="color: #00f0ff;">Extérieurs, Piscines & Paysage</span>
+                        <h3 class="portfolio-title">AURA — Piscines Miroir & Spas</h3>
+                        <p class="portfolio-desc">
+                            Direction artistique de prestige pour valoriser les projets à fort panier moyen : galerie immersive et comparateur avant/après.
+                        </p>
+                        <div class="portfolio-actions-row">
+                            <a href="portfolio.html" class="portfolio-action">Inspecter la maquette <i data-lucide="arrow-right"></i></a>
+                            <a href="contact.html?modele=AURA%20Piscines" class="mini-badge" style="text-decoration:none; color:#fff;">Demander un accès</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="section" style="padding-top: 0;">
+            <div class="offer-box" style="text-align: center; padding: 3.5rem 2rem;">
+                <div class="section-label" style="justify-content: center;">Disponibilité Immédiate</div>
+                <h2 class="section-title" style="max-width: 680px; margin: 0 auto 1rem;">
+                    Prêt à mettre votre entreprise au-dessus de la concurrence en 48h ?
+                </h2>
+                <p class="section-desc" style="margin: 0 auto 2rem;">
+                    Tarif fixe de 1 000 € net (TVA non applicable), zéro abonnement mensuel, propriété totale de votre site.
+                </p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn-shimmer">
+                        <span>Réserver mon créneau 48h</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="methode.html" class="btn-secondary">
+                        <span>Découvrir la méthode étape par étape</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">NOVOX<span style="color: var(--accent-cyan);">.</span></div>
+            <nav class="footer-nav">
+                <a href="index.html">Accueil</a>
+                <a href="offre.html">L'Offre 1 000€</a>
+                <a href="portfolio.html">Maquettes Privées</a>
+                <a href="methode.html">Méthode 48h</a>
+                <a href="secteurs.html">Secteurs</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="legal.html">Mentions Légales</a>
+            </nav>
+            <div class="footer-copy">&copy; 2026 Novox Studio — SIRET : En cours d'immatriculation.</div>
+        </div>
+    </footer>
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="script.js"></script>
-    <script>
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-    </script>
 </body>
 </html>
